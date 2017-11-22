@@ -1,6 +1,7 @@
 ---
 title: mongodb 安装
 tags: mongodb
+categories: mongodb
 date: 2017/11/18 22:51:34
 ---
 
