@@ -10,4 +10,4 @@ categories: window
 
 ``` bash
 netstat -aon|findstr "49157"  #后接需要查寻的端口
-``` 
+```
