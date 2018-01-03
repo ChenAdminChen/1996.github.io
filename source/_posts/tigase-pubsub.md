@@ -4,7 +4,7 @@ date: 2017/12/25 16:53:56
 reward: false
 tags: 
     - tigase
-    - pubsu
+    - pubsub
     
 ---
 pubsub地址：https://xmpp.org/extensions/xep-0060.html
