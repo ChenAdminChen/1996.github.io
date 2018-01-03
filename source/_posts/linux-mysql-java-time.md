@@ -22,7 +22,9 @@ root@localhost# export TZ     #(TZ：time zone)
 ```
 
 ### linux tzselect的学习
+
 #### teselect的介绍
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;teselect命令用于选择时区，但是tzselect只是帮助我们把选择的时区显示出来，并不会实际生效，也只是说我们按照它的提示去选择，结果只会告诉我们如何去设置环境变量TZ。如果要永久更改主时区，按照tzselect命令的信息,在.profile或者/etc/profile中设置正确的TZ环境变量。
 
 ``` bash
@@ -66,7 +68,7 @@ Please select one of the following time zone regions.
 3) central China - Sichuan, Yunnan, Guangxi, Shaanxi, Guizhou, etc.
 4) most of Tibet & Xinjiang
 5) west Tibet & Xinjiang
-#? 1 
+#? 1
 
 The following information has been given:
 
@@ -79,7 +81,7 @@ Universal Time is now:  Mon Dec  6 01:40:35 UTC 2010.
 Is the above information OK?
 1) Yes
 2) No
-#? 1 
+#? 1
 
 You can make this change permanent for yourself by appending the line
         TZ='Asia/Shanghai'; export TZ 
@@ -92,6 +94,7 @@ Asia/Shanghai
 ```
 
 然后按照上面的选择后的结果
+
 ``` bash
 TZ='Asia/Shanghai'; export TZ   #在系统文件中将配置并生效
 ```
@@ -99,29 +102,36 @@ TZ='Asia/Shanghai'; export TZ   #在系统文件中将配置并生效
 ### cd etc/sysconfig/clock
 
 ### 使用zdump读取/etc/localtime
+
 ``` bash
 root@localhost# zdump -v /etc/localtime
 ```
 
 ### zoneinfo介绍
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoneinfo另一种查看时间信息的方法，其代码如下：
 
 ``` bash
 root@localhost# cd /usr/share/zoneinfo/
-root@localhost/usr/share/zoneinfo# ls #查看该文件中所有的信息 
+root@localhost/usr/share/zoneinfo# ls #查看该文件中所有的信息
 root@localhost/usr/share/zoneinfo# cat PRC # 查看当前时间设置的信息
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如下配置的linux无法读取时间  export TZ='GMT+8'
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如下配置的linux无法读取时间  export TZ='GMT+8'
 
 ## mysql
 
 ``` bash
-show variables like '%time%'  #查看mysql的时间配置信息
+#查看当前时区
+show variables like 'time_zone';
 
-service mysql restart  #重启服务器
+#查看mysql的时间配置信息
+show variables like '%time%'
 
-``` 
+#重启服务器
+service mysql restart
+
+```
 
 ## java时间
 
@@ -139,5 +149,4 @@ public class NowString {
     }
 }
 
-``` 
-
+```
