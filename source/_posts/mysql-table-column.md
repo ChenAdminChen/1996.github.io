@@ -73,8 +73,9 @@ drop foreign key foreign_key_name on table_name;
 #查看表索引
 show index from table_name;
 
-#增加表索引
+#增加表唯一索引
 ALTER TABLE table_name ADD UNIQUE INDEX `index_name` (`columns_name` ASC)
+#增加表的主键
 ALTER TABLE table_name ADD PRIMARY KEY (columns_name)
 
 #删除表索引
