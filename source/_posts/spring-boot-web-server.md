@@ -1,15 +1,14 @@
 ---
-title: tigase pubsub的xml格式
-date: 2017/12/25 16:53:56
+title: spring boot web server
+date: 2018/02/25 16:53:56
 reward: false
 tags: 
-    - tigase
-    - pubsub
-
+    - spring-boot
+    - web
+    
 ---
-pubsub地址：https://xmpp.org/extensions/xep-0060.html
 
-### 创建pubsub节点
+### 
 
 ``` bash
 <iq type='set' from='00000032@im.com/swm-mac' to='pubsub.im.com' id='create1'>
