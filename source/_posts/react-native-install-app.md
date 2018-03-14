@@ -23,7 +23,7 @@ npm install yarn
 
 #### install SDK
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SDK的下载地址](https://developer.android.com/studio/index.html "android studio")
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置adb服务,[下载地址](http://adbshell.com/downloads "adb 下载地址")
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置adb服务,[下载地址](http://adbshell.com/downloads "adb 下载地址"),其[学习地址](https://developer.android.com/studio/command-line/adb.html?hl=zh-cn "adb 学习地址")
 
 ``` bash
 #查看当前电脑连接的手机设备
