@@ -23,7 +23,7 @@ mvn -v
 
 ```
 
-### mavne 环境变量的名M2_HOME与MAVEN_HOME的区别
+### maven环境变量名M2_HOME与MAVEN_HOME的区别
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[M2_HOME的地址](http://blog.csdn.net/zhouhuakang/article/details/50611444 'M2_HOME')
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MAVEN_HOME的地址](https://my.oschina.net/anyyang/blog/686893 'MAVEN_HOME')

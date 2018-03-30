@@ -13,16 +13,9 @@ categories: iterator
 
 ### iterator
 
-
-
-show dbs;   #查看mongodb数据库中存在的数据库
-use datebase_name;   #使用指定的数据库
-show collections;   #查看某个数据库下所有的collction
-
-
 ### iterable
  
-
+ 
 ## python
 
 ### iterable/可迭代的

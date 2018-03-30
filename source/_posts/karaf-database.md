@@ -1,5 +1,5 @@
 ---
-title: karaf database drive
+title: karaf database driver
 date: 2018.1.29 16:36:45
 reward: false
 tags: 
@@ -21,7 +21,7 @@ service:list DataSourceFactory   # 用于查看该容器里配置的数据源
 
 ```
 
-### features内配置的数据库信息
+### features内配置的信息
 
 ``` bash
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" name="yfaf-features">

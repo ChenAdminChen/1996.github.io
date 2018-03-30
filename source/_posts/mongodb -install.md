@@ -1,6 +1,8 @@
 ---
 title: mongodb 安装
-tags: mongodb
+tags: 
+    - mongodb
+    - 未写完
 categories: mongodb
 date: 2017/11/18 22:51:34
 ---
@@ -15,13 +17,17 @@ date: 2017/11/18 22:51:34
 (3)创建存储日志的文件
 
 ### 将mongodb做成window系统中内置的服务
+
 （1）用管理的身份运用命令行
 （2）将mongodb运行于window服务内，命令如下：
+
 ``` bash
 mongod.exe --install --logpath D:\data\log.txt --serviceName mongodb 
 ```
+
 （3)将启动mongodb服务
+
 ## 运行mongodb
-(1)运行mongo
+
 
 
