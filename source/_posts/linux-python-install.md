@@ -5,6 +5,7 @@ reward: false
 tags:
     - linux
     - python
+    - install
 ---
 
 ### 下载python3.6.4安装包

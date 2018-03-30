@@ -3,6 +3,7 @@ title: javaScript （一）
 date: 2017/11/21 09:36:45
 tags: 
     - javaScript
+    - function
 ---
 
 ## 调用函数名时加（）与不加（）的区别
