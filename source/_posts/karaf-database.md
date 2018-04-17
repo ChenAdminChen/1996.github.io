@@ -21,7 +21,7 @@ service:list DataSourceFactory   # 用于查看该容器里配置的数据源
 
 ```
 
-### features内配置的信息
+<!-- ### features内配置的信息
 
 ``` bash
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" name="yfaf-features">
@@ -55,7 +55,7 @@ service:list DataSourceFactory   # 用于查看该容器里配置的数据源
 
 </features>
 
-```
+``` -->
 
 ### 配置数据源信息
 
@@ -102,4 +102,24 @@ jdbc:query # jdbc:query sql ：对数据库表的操作
 jdbc:tables
 
 karaf@root> jdbc:query test select * from user
+```
+
+### 模块代码引用
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基于mybatis 注解模式引用，部分配置代码如下
+
+``` bash
+ <bean id="dataSource"
+          class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="osgi:service/yfdb"/>
+    </bean>
+
+    <!-- 配置 sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--注解模式，自动扫描-->
+    <mybatis:scan base-package="要扫描的mapper"/>
+#上面 jndiName 的value值就是我们前面cfg文件里设置的test
 ```
