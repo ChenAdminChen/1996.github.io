@@ -172,7 +172,7 @@ ACC_PRIVATE | 0x0002 | 方法设为private | 类
 ACC_PROTECTED | 0x0004 | 方法设为protected | 类
 ACC_STATIC | 0x0008 | 方法设为static | 类
 ACC_FINAL | 0x0010 | 方法设为final | 类
-ACC_SYNCHRONIZED	0x0020 | 方法设为sychronized | 类
-ACC_NATIVE	0x0100	方法设为native	类
-ACC_ABSTRACT	0x0400	方法设为abstract	类和接口
-ACC_STRICT	0x0800	方法设为strictFP	类和接口的<clinit>方法
+ACC_SYNCHRONIZED | 0x0020 | 方法设为sychronized | 类
+ACC_NATIVE | 0x0100 | 方法设为native | 类
+ACC_ABSTRACT | 0x0400 | 方法设为abstract | 类和接口
+ACC_STRICT | 0x0800 | 方法设为strictFP | 类和接口的<clinit>方法
