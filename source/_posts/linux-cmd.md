@@ -10,6 +10,7 @@ categories: linux
 
 ### linux下运行python虚批环境
 
+
 ``` bash
 
 #开启虚拟环境
