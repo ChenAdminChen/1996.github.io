@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99062b89-11fe-4500-a4af-a50ac49d028f" name="Default" comment="添加 apache">
-      <change afterPath="$PROJECT_DIR$/source/_posts/keytool.md" afterDir="false" />
+    <list default="true" id="99062b89-11fe-4500-a4af-a50ac49d028f" name="Default" comment="add cas service proxy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/cas-server-set-up.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/cas-server-set-up.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +14,7 @@
     <session id="284946801">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
@@ -36,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="2292" />
-          <entry key="txt" value="15" />
+          <entry key="txt" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="2292" />
-          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="PLAIN_TEXT" value="54" />
         </counts>
       </usages-collector>
     </session>
@@ -90,7 +88,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="361">
-                <caret line="525" lean-forward="true" selection-start-line="525" selection-end-line="525" />
+                <caret line="555" lean-forward="true" selection-start-line="555" selection-end-line="555" />
               </first_editor>
               <second_editor />
             </state>
@@ -179,7 +177,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534473194205" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java/cas-client-test" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -233,7 +232,7 @@
       <updated>1530081614541</updated>
       <workItem from="1533784096392" duration="6490000" />
       <workItem from="1534310216868" duration="4439000" />
-      <workItem from="1534466169606" duration="3895000" />
+      <workItem from="1534466169606" duration="4457000" />
     </task>
     <task id="LOCAL-00001" summary="添加 apache">
       <created>1533796025352</created>
@@ -242,17 +241,24 @@
       <option name="project" value="LOCAL" />
       <updated>1533796025353</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add cas service proxy">
+      <created>1534472673686</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1534472673686</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14824000" />
+    <option name="totallyTimeSpent" value="15386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08397436" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29807693" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -266,7 +272,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.20698924" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.20698924" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -290,7 +296,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加 apache" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加 apache" />
+    <MESSAGE value="add cas service proxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cas service proxy" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/source/_posts/karaf-database.md">
@@ -375,7 +382,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="361">
-            <caret line="525" lean-forward="true" selection-start-line="525" selection-end-line="525" />
+            <caret line="555" lean-forward="true" selection-start-line="555" selection-end-line="555" />
           </first_editor>
           <second_editor />
         </state>
