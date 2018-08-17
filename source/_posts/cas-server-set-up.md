@@ -333,6 +333,33 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
             <version>${cas.version}</version>
         </dependency>
 
+        <!--jwt-->
+        <dependency>
+             <groupId>org.apereo.cas</groupId>
+             <artifactId>cas-server-support-token-tickets</artifactId>
+             <version>${cas.version}</version>
+        </dependency>
+                
+        <dependency>
+             <groupId>org.apereo.cas</groupId>
+             <artifactId>cas-server-support-json-service-registry</artifactId>
+             <version>${cas.version}</version>
+        </dependency>
+        
+        <!--rest-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-rest</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        
+         <dependency>
+             <groupId>org.apereo.cas</groupId>
+             <artifactId>cas-server-support-rest-tokens</artifactId>
+             <version>${cas.version}</version>
+        </dependency>
+                        
+            
     </dependencies>
 
     <properties>
@@ -554,3 +581,10 @@ java -jar cas.war
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;将其内容配置好后,启动tomcat,访问地址:https://127.0.0.1:8443/cas/login
+
+### 若需要查看client可前往githut
+
+> https://github.com/ChenAdminChen/java.git
+
+project: cas-client
+         cas-client-test
