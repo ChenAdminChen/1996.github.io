@@ -12,29 +12,25 @@ tags:
 
 #### 下载基于5.2x版本的cas服务器
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[下载地址](https://github.com/apereo/cas-overlay-template "github地址")
+&nbsp;&nbsp;&nbsp;&nbsp;[下载地址](https://github.com/apereo/cas-overlay-template "github地址")
 
 #### cas.properties文件配置
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在项目的cas-overlay-template\etc\cas\config文件下需要配置cas.properties内相关的配置内容。
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以下是相关配置文件
+&nbsp;&nbsp;&nbsp;&nbsp;在项目的cas-overlay-template\etc\cas\config文件下需要配置cas.properties内相关的配置内容。<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;以下是相关配置文件
 
 ``` bash
 #server config
 cas.server.name: https://localhost
 cas.server.prefix: https://localhost/cas
 
-#logger
+#logger，可在log4j2.xml中设置logger lever
 logging.config: file:/etc/cas/config/log4j2.xml
 
 #adminPagesSecurity
 cas.adminPagesSecurity.ip=127\.0\.0\.1
 cas.adminPagesSecurity.adminRoles[0]=ROLE_ADMIN
 cas.adminPagesSecurity.actuatorEndpointsEnabled=true
-
-#cas Endpoints moniter
-cas.monitor.endpoints.enabled=true
-cas.monitor.endpoints.sensitive=false
 
 #openid connect Authentication
 cas.authn.oidc.issuer=https://localhost/cas/oidc
@@ -103,7 +99,83 @@ cas.authn.attributeRepository.jdbc[0].username=account
 cas.authn.attributeRepository.defaultAttributesToRelease=name,account
 #,nickname,date,phone,email,gender,im,safe_aid,company
 
-# cas.serviceRegistry.config.location: classpath:/services
+#service注册所在目录
+cas.serviceRegistry.config.location: classpath:/services
+
+#将cas页面中查看 sso session/ register service page 
+cas.monitor.endpoints.enabled=true   
+cas.monitor.endpoints.sensitive=false
+
+cas.monitor.endpoints.dashboard.enabled=true
+cas.monitor.endpoints.dashboard.sensitive=false
+
+cas.monitor.endpoints.status.enabled=true   
+cas.monitor.endpoints.status.sensitive=false
+
+#开启 jwt token
+cas.authn.token.crypto.encryptionEnabled=true
+cas.authn.token.crypto.signingEnabled=true
+
+#jwt key,若key，未设置，则在启动时会自动生成下面的key
+cas.authn.token.crypto.encryption.key=xPZkj_A8RXlQfvD8EwmT7mU2TseRrcWHjM8q3R1AGik
+cas.authn.token.crypto.signing.key=PKH_BNwqiUDkMey108ix1fTWktUGXkALNBqoyE1NBT_RABe1WPY42FAqJOwCltLAa6duzvANst-Kxx7lYctrrg
+
+cas.tgc.crypto.encryption.key=kJbeEjRlDRQCixHWwn2WpjiXAwXzan8h_o-jCv89k90
+cas.tgc.crypto.signing.key=pR0GCaP_10pxitFBh2I2KNEGrDF9vb6HodyyV2u5u-3DkQiXd6GcSACeDfWxVsfS345ao99cIvF8ox4y_kjdSw
+
+cas.webflow.crypto.signing.key=TnK9AvAkwAbvFLIIZgtoT1K3YiGBWoebDIWC_8bozIfT2XKFGxQxochwa-d4Q_2WRwYwDv4Kw_d930MwywZHeg
+cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
+
+```
+
+#### service.json
+
+```
+{
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId" : "^https?://.*", //所注册的服务地址
+  "name" : "CAS Spring Secured App",
+  "description": "This is a Spring App that usses the CAS Server for it's authentication",
+  "id" : 19991,
+  "evaluationOrder" : 1,
+  //代理服务器地址
+  "proxyPolicy" : {
+    "@class" : "org.apereo.cas.services.RegexMatchingRegisteredServiceProxyPolicy",
+    "pattern" : "^https?://.*"
+  },
+  //设置 生成 jwt时所要的key，该key来自于生成的cer中，则必需使用与cas服务器中相同的证书
+  "publicKey" : {
+      "@class" : "org.apereo.cas.services.RegisteredServicePublicKeyImpl",
+      "location" : "file:/etc/cas/chen.cer",
+      "algorithm" : "RSA" //证书生成时所使用的加密方式
+  }，
+  //使用jwt时才使用
+  "properties" : {
+   "@class" : "java.util.HashMap",
+    "jwtAsServiceTicket" : {
+      "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+      "values" : [ "java.util.HashSet", [ "true" ] ]
+     },
+    "jwtAsServiceTicketSigningKey" : {
+       "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+       "values" : [ "java.util.HashSet", [ "ONOqVlFFievk5lo2Yz84S8J41DTrAJDbt4MnB2ZpniKAlzHitlL12xJ1VYxB8GpB" ] ]  //key一定为64字节，在jwtAsServiceTicketEncryptionKey加密才使用该加密
+      },
+     "jwtAsServiceTicketEncryptionKey" : {
+         "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+         "values" : [ "java.util.HashSet", [ "afkeykeykeykyekyefdafsadfsdafdafdafsadfsafa" ] ]  //key一定为256位 ，先使用该key 加密
+      },
+      "jwtSecretsAreBase64Encoded": {
+          "@class": "org.apereo.cas.services.DefaultRegisteredServiceProperty",
+          "values": [ "java.util.HashSet", [ "true" ] ]
+        }
+    },
+    //开启代理服务
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
+    "authorizedToReleaseCredentialPassword" : true
+  }
+  
+}
 
 ```
 
@@ -224,11 +296,11 @@ cas.authn.attributeRepository.defaultAttributesToRelease=name,account
             <version>5.2.11.Final</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.30</version>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -372,33 +444,19 @@ cas.authn.attributeRepository.defaultAttributesToRelease=name,account
 
 ```
 
-#### 编译打包
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打包成功后会,项目内会出现target文件内存在cas.war的包
-
-``` bash
-#cmd进入项目文件下按github上面的指令进行打包
-D:>build.cmd package -U       # -U是清除后打包
-
-```
-
-#### 将cas.war放入tomact容器
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将cas.war放入D:\apache-tomcat-8.0.30\webapps内
-
-#### 与tomact同级创建ect文件
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将项目中的ect文件全部复制到与tomact同级的磁盘存储,在该文件下只改变cas.properties内的内容时,不需要将项目重新打包,只需要将tomact重启就可生效配置文件
-
 ### SSL认证
 
 #### 生成私钥
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用jdk自身的keytool生成相应的数字一个证书,生成证书到D:\localhost.keystore
+&nbsp;&nbsp;&nbsp;&nbsp;利用jdk自身的keytool生成相应的数字一个证书,生成证书到D:\localhost.keystore
 
 ``` bash
 #使用JDK的keytool命令，生成证书（包含证书/公钥/私钥）到D:\localhost.keystore：
 
-D:>keytool -genkey -keystore "D:\localhost.keystore" -alias localhost -keyalg RSA
+#-ext san（subjectAltName）: 备用域名,在新的规范内代替cn，可映射到多个域名，也可指向ip,在chrome中需要设置
+    
+#cn 域名指向
+
+D:>keytool -genkey -keystore "D:\localhost.keystore" -alias localhost -keyalg RSA -storepass changeit -ext san=dns:cas.example.org,ip:127.0.01
 
 输入密钥库口令:
 
@@ -430,9 +488,11 @@ CN=localhost, OU=sishuok.com, O=sishuok.com, L=beijing, ST=beijing, C=cn是否�
 
 #### 生成公钥
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先使用localhost.keystore导出数字证书（公钥）到D:\localhost.cer
+&nbsp;&nbsp;&nbsp;&nbsp;首先使用localhost.keystore导出数字证书（公钥）到D:\localhost.cer
 
 ```bash
+
+#-alias 与生成时的名字要相同
 
 D:>keytool -export -alias localhost -file D:\localhost.cer -keystore D:\localhost.keystore
 
@@ -440,18 +500,51 @@ D:>keytool -export -alias localhost -file D:\localhost.cer -keystore D:\localhos
 
 #### 将其配置到jdk内
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为CAS client需要使用该证书进行验证，需要将证书导入到JDK中
+&nbsp;&nbsp;&nbsp;&nbsp;因为CAS client需要使用该证书进行验证，需要将证书导入到JDK中
 
 ```bash
 #需要进入jdk安装路径的security文件内
 D:> cd D:\jdk1.7.0_21\jre\lib\security
-keytool -import -alias localhost -file D:\localhost.cer -noprompt -trustcacerts -storetype jks -keystore cacerts -storepass 123456
+keytool -import -alias localhost -file D:\localhost.cer -noprompt -trustcacerts -storetype jks -keystore cacerts -storepass changeit
 
 #若导入出现错误时,可将security目录下的cacerts删掉,再次导入
 ```
 
-### 配置tomact的,认证SSL
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置D:\apache-tomcat-8.0.30\conf下的server.xml文件,将下面的内容添加进出,认证SSL,其keystoreFile所指向的地方:为私钥存放的地方
+## 打包运行
+
+&nbsp;&nbsp;&nbsp;&nbsp;打包成功后会,项目内会出现target文件内存在cas.war的包
+
+``` bash
+#将etc目录下的所有文件都复制到项目所在的根目下面
+build.cmd copy
+
+#自动生成证书
+build.cmd gencert
+
+#cmd进入项目文件下按github上面的指令进行打包
+D:>build.cmd package -U       # -U是清除后打包
+
+#打包后，再运行
+build.cmd run
+
+#直接运行war,需要进入到cas.war所在的目录下
+java -jar cas.war
+
+#可查看build.cmd/build.sh下自己写入启动方法
+```
+
+## 下面的步骤不需要使用
+
+#### 将cas.war放入tomact容器 
+
+&nbsp;&nbsp;&nbsp;&nbsp;将cas.war放入D:\apache-tomcat-8.0.30\webapps内
+
+#### 与tomact同级创建ect文件
+
+&nbsp;&nbsp;&nbsp;&nbsp;将项目中的ect文件全部复制到与tomact同级的磁盘存储,在该文件下只改变cas.properties内的内容时,不需要将项目重新打包,只需要将tomact重启就可生效配置文件
+
+### 配置tomact的,认证SSL ,其中这一步可不执行,跳转到
+&nbsp;&nbsp;&nbsp;&nbsp;配置D:\apache-tomcat-8.0.30\conf下的server.xml文件,将下面的内容添加进出,认证SSL,其keystoreFile所指向的地方:为私钥存放的地方
 
 ```bash
  <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -461,4 +554,4 @@ keytool -import -alias localhost -file D:\localhost.cer -noprompt -trustcacerts 
            />
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将其内容配置好后,启动tomcat,访问地址:https://127.0.0.1:8443/cas/login
+&nbsp;&nbsp;&nbsp;&nbsp;将其内容配置好后,启动tomcat,访问地址:https://127.0.0.1:8443/cas/login
