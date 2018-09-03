@@ -138,12 +138,11 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
   "description": "This is a Spring App that usses the CAS Server for it's authentication",
   "id" : 19991,
   "evaluationOrder" : 1,
-  //代理服务器地址
   "proxyPolicy" : {
     "@class" : "org.apereo.cas.services.RegexMatchingRegisteredServiceProxyPolicy",
     "pattern" : "^https?://.*"
   },
-  //设置 生成 jwt时所要的key，该key来自于生成的cer中，则必需使用与cas服务器中相同的证书
+  //设置 生成 jwt时所要的key，该key来自于生成的cer中，则必需使用与cas服务器中相同的证书，可以不设置
   "publicKey" : {
       "@class" : "org.apereo.cas.services.RegisteredServicePublicKeyImpl",
       "location" : "file:/etc/cas/chen.cer",
@@ -156,20 +155,18 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
       "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
       "values" : [ "java.util.HashSet", [ "true" ] ]
      },
+     // 可以不设置，若不设置，则在service启动时service 生成
     "jwtAsServiceTicketSigningKey" : {
        "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
        "values" : [ "java.util.HashSet", [ "ONOqVlFFievk5lo2Yz84S8J41DTrAJDbt4MnB2ZpniKAlzHitlL12xJ1VYxB8GpB" ] ]  //key一定为64字节，在jwtAsServiceTicketEncryptionKey加密才使用该加密
       },
+      // 可以不设置，若不设置，则在service启动时service 生成
      "jwtAsServiceTicketEncryptionKey" : {
          "@class" : "org.apereo.cas.services.DefaultRegisteredServiceProperty",
          "values" : [ "java.util.HashSet", [ "afkeykeykeykyekyefdafsadfsdafdafdafsadfsafa" ] ]  //key一定为256位 ，先使用该key 加密
-      },
-      "jwtSecretsAreBase64Encoded": {
-          "@class": "org.apereo.cas.services.DefaultRegisteredServiceProperty",
-          "values": [ "java.util.HashSet", [ "true" ] ]
-        }
+      }
     },
-    //开启代理服务
+    //设置返回值的内类
   "attributeReleasePolicy" : {
     "@class" : "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
     "authorizedToReleaseCredentialPassword" : true
@@ -194,64 +191,6 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
     <packaging>war</packaging>
     <version>1.0</version>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.rimerosolutions.maven.plugins</groupId>
-                <artifactId>wrapper-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <verifyDownload>true</verifyDownload>
-                    <checksumAlgorithm>MD5</checksumAlgorithm>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${springboot.version}</version>
-                <configuration>
-                    <mainClass>${mainClassName}</mainClass>
-                    <addResources>true</addResources>
-                    <executable>${isExecutable}</executable>
-                    <layout>WAR</layout>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <warName>cas</warName>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <recompressZippedFiles>false</recompressZippedFiles>
-                    <archive>
-                        <compress>false</compress>
-                        <manifestFile>${manifestFileToUse}</manifestFile>
-                    </archive>
-                    <overlays>
-                        <overlay>
-                            <groupId>org.apereo.cas</groupId>
-                            <artifactId>cas-server-webapp${app.server}</artifactId>
-                        </overlay>
-                    </overlays>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-            </plugin>
-        </plugins>
-        <finalName>cas</finalName>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -259,23 +198,6 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
             <version>${cas.version}</version>
             <type>war</type>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-rest</artifactId>
-            <version>${cas.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-rest-tokens</artifactId>
-            <version>${cas.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-token-tickets</artifactId>
-            <version>${cas.version}</version>
         </dependency>
 
         <dependency>
@@ -296,11 +218,6 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
             <version>5.2.11.Final</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.30</version>
-        </dependency> -->
 
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -359,114 +276,8 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
              <version>${cas.version}</version>
         </dependency>
                         
-            
     </dependencies>
 
-    <properties>
-        <cas.version>5.2.1</cas.version>
-        <springboot.version>1.5.8.RELEASE</springboot.version>
-        <app.server>-tomcat</app.server> 
-
-        <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
-        <isExecutable>false</isExecutable>
-        <manifestFileToUse>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF</manifestFileToUse>
-
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>sonatype-releases</id>
-            <url>http://oss.sonatype.org/content/repositories/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>sonatype-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>shibboleth-releases</id>
-            <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
-        </repository>
-    </repositories>
-
-    <profiles>
-        <profile>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <id>exec</id>
-            <properties>
-                <mainClassName>org.apereo.cas.web.CasWebApplication</mainClassName>
-                <isExecutable>true</isExecutable>
-                <manifestFileToUse></manifestFileToUse>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.soebes.maven.plugins</groupId>
-                        <artifactId>echo-maven-plugin</artifactId>
-                        <version>0.3.0</version>
-                        <executions>
-                            <execution>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>echo</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <echos>
-                            <echo>Executable profile to make the generated CAS web application executable.</echo></echos>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <id>pgp</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.s4u.plugins</groupId>
-                        <artifactId>pgpverify-maven-plugin</artifactId>
-                        <version>1.1.0</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <pgpKeyServer>hkp://pool.sks-keyservers.net</pgpKeyServer>
-                            <pgpKeysCachePath>${settings.localRepository}/pgpkeys-cache</pgpKeysCachePath>
-                            <scope>test</scope>
-                            <verifyPomFiles>true</verifyPomFiles>
-                            <failNoSignature>false</failNoSignature>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
 
 ```
@@ -480,7 +291,7 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
 
 #-ext san（subjectAltName）: 备用域名,在新的规范内代替cn，可映射到多个域名，也可指向ip,在chrome中需要设置
     
-#cn 域名指向
+#您的名字与姓氏是（cn）:特殊的设置项，与域名相同
 
 D:>keytool -genkey -keystore "D:\localhost.keystore" -alias localhost -keyalg RSA -storepass changeit -ext san=dns:cas.example.org,ip:127.0.01
 
@@ -586,5 +397,6 @@ java -jar cas.war
 
 > https://github.com/ChenAdminChen/java.git
 
-project: cas-client
+project: 
+         cas-client
          cas-client-test

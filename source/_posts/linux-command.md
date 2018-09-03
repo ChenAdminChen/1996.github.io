@@ -20,8 +20,6 @@ categories: linux
 后台运行python程序，将运行地址切换到需要运行的python文件下,将有日志打印在文件内
 >root@ nohup python main.py $
 
-```
-
 ### servicemix的运行
 
 进入servicemix的文件夹下
@@ -35,7 +33,17 @@ categories: linux
 关闭
 >root@4xe7t:/tigase-server-7.1.0-b4379/script# ./tigase.sh stop ../etc/tigase.conf
 
+### linux path 加临时性代理
 
+以下方式为session会话，关闭cmd则消息
+
+>export HTTP_PROXY=127.0.0.1:1080
+
+>export HTTPs_PROXY=127.0.0.1:1080
+
+### linux path 永久设置
+
+    ./profile文件内修改才行
 
 ### 查看进行进程
 
