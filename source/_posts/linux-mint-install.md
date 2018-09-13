@@ -37,5 +37,80 @@ single
 
 ```
 
-#### 安装好后无法访问window下面的磁盘
+#### nomodeset single进入无图形化界面
+
+##### 检查nouveau驱动是否被禁用
+
+如果有任何输出信息，表明nouveau驱动被启用。
+
+##### 禁用nouveau驱动（必要）
+
+> 创建文件/etc/modprobe.d/blacklist-nouveau.conf，内容如下：
+
+```
+blacklist nouveau
+options nouveau modeset=0
+```
+
+> 重新生成kernel initramfs，终端输入：
+
+```
+sudo update-initramfs -u
+```
+
+##### nomodeset模式下安装nvidia驱动
+
+1） CUDA官方文档上说，如果要安装nvidia显卡驱动，那么必须保证nouveau驱动被禁用。可是nvidia驱动还没安装上，那岂不是没有显卡驱动了吗？幸运的是，这里可以让系统临时进入nomodeset模式，它采用了一种”软显示“模式。
+
+重启系统进入nomodeset模式：参考https://www.linuxmint.com/rel_serena_cinnamon.php里的Solving freezes部分。
+
+2） 在nomodeset模式下，先按步骤1检查nouveau驱动是否被禁用，确保其禁用。再安装nvidia驱动
+
+#### 
+
+#### 
+
+### 安装好重启电脑
+
+> grub rescue
+
+[学习地址](https://askubuntu.com/questions/635052/how-do-i-use-grub-rescue '3')
+```
+#获得分区信息
+grub rescue>ls 
+(hd1,msdos7) (hd1,msdos8) ....
+
+grub rescue>ls (hd1,msdos7)
+.... /boot   //则(hd1,msdos7)为启动盘
+
+grub rescue>set prefix=(hd1,msdos7)/boot/grub
+grub rescue>set root=(hd1,msdos7)
+
+grub rescue>insmod normal
+grub rescue>normal
+
+grub>insmod linux
+grub> linux /boot/vmlinuz-3.13.0-29-generic root=/dev/sda1
+grub> initrd /boot/initrd.img-3.13.0-29-generic
+grub> boot
+
+```
+
+> 重启电脑无法选择window系统
+    
+    linux系统下使用apt下载os-prober
+```
+apt install os-prober
+```    
+
+> 重启电脑后发现无法自动进入系统，出现error not find device
+
+ linux系统使用下面指令,[学习地址](https://askubuntu.com/questions/143667/boot-error-no-such-device-grub-rescue '1')
+ 
+ ```
+    grub-install /dev/sda  -- 硬盘
+    grub-install /dev/sdb  -- 机器硬盘
+    update-grub
+```
+    
 

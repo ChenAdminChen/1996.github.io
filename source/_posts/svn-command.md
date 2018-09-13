@@ -14,7 +14,6 @@ tags:
 //https://127.0.0.1/svn/trunk为存放new_project项目的地方
 >svn mkdir https://127.0.0.1/svn/trunk/new_project  
 
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;检查new_project
 >svn co https://127.0.0.1/svn/trunk/new_project
 
@@ -35,7 +34,7 @@ tags:
 
 分支上合并主干代码
 3192：是指创建分支时主干版本号
-3225：是指当前需要合并的主干版本号
+3225：是指当前需要合并的主干版本号-
 >svn merge -r 3192:3225 https://192.168.1.168/svn/Yf_Server/trunk/new_project
 
 在分支查看处理的分支是否存在没有提交的代码
