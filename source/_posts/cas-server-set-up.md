@@ -47,10 +47,15 @@ cas.authn.oidc.claimsMap.phone_number=phone
 #取消有静态登录的警告
 cas.authn.accept.users=
 
-#service
+#service注册所在目录
+# json service registry
 cas.serviceRegistry.watcherEnabled=true
-cas.serviceRegistry.config.location=classpath:/services
+cas.serviceRegistry.config.location=file:/etc/cas/services
 cas.serviceRegistry.initFromJson=true
+
+# json service registry
+#cas.service-registry.init-from-json=true
+#cas.service-registry.json.location=file:/etc/cas/services
 
 # mysql database
 cas.serviceRegistry.jpa.ddlAuto=create-drop
@@ -99,9 +104,6 @@ cas.authn.attributeRepository.jdbc[0].username=account
 cas.authn.attributeRepository.defaultAttributesToRelease=name,account
 #,nickname,date,phone,email,gender,im,safe_aid,company
 
-#service注册所在目录
-cas.serviceRegistry.config.location: classpath:/services
-
 #将cas页面中查看 sso session/ register service page 
 cas.monitor.endpoints.enabled=true   
 cas.monitor.endpoints.sensitive=false
@@ -128,7 +130,9 @@ cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ
 
 ```
 
-#### service.json
+#### 注册服务
+
+service.json
 
 ```
 {
