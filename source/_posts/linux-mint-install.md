@@ -96,11 +96,21 @@ grub> boot
 
 ```
 
+> 自动进行修复
+[学习地址](https://help.ubuntu.com/community/Boot-Repair '4')
+```
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo apt-get update
+sudo apt-get install -y boot-repair && boot-repair
+```
+
 > 重启电脑无法选择window系统
     
     linux系统下使用apt下载os-prober
 ```
 apt install os-prober
+
+sudo os-prober
 ```    
 
 > 重启电脑后发现无法自动进入系统，出现error not find device
@@ -112,5 +122,6 @@ apt install os-prober
     grub-install /dev/sdb  -- 机器硬盘
     update-grub
 ```
+
     
 
