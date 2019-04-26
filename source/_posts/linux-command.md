@@ -132,5 +132,12 @@ ftp> ls
 ftp: bind: Address already in use
 ftp> type binary  //转换成 binary
 200 Type set to I.
+ftp> put data.jar data.jar //将data.jar 传上去 需要定义新文件的名字
 </code></pre>
 
+#### linux 上传文件到linux
+
+```
+#将yfaf*.sql 的所有文件上传到175.6.56.51服务器上
+scp yfaf*.sql root@175.6.56.51:~/
+```

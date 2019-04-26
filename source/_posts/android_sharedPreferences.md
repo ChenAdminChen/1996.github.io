@@ -5,9 +5,10 @@ tags:
   - android
 ---
 
+
 ## sharedPreferences的用法
 
 &nbsp;&nbsp;&nbsp;&nbsp;sharedPreferences的类用于存储数据，共享数据
-
-
+    
+    
   
