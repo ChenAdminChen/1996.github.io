@@ -1,5 +1,5 @@
 ---
-title: java
+title: java chain-of-responsibility-pattern
 date: 2019.05.04 15:45:34
 tags:
   - java
@@ -16,7 +16,8 @@ tags:
 
 ## code implement
 
-### 创建抽象的记录器类
+### 创建抽象的记录器类  
+
 ```java
 /**
  * abstract class can have construction
@@ -56,7 +57,8 @@ public abstract class AbstractLogger {
 
 ```
 
-### 创建扩展了该记录器类的实体类。
+### 创建扩展该记录器类的实体类   
+ 
 ```kotlin
 
 class ConsoleLogger(level: Int) : AbstractLogger(level) {
@@ -67,7 +69,7 @@ class ConsoleLogger(level: Int) : AbstractLogger(level) {
 
 ```
 
-```kotlin
+```kotlin  
 
 class ErrorLogger(level:Int):AbstractLogger(level) {
     override fun write(message: String?) {
@@ -77,7 +79,7 @@ class ErrorLogger(level:Int):AbstractLogger(level) {
 
 ```
 
-```kotlin
+```kotlin  
 
 class FileLogger(level: Int) : AbstractLogger(level) {
     override fun write(message: String) {
@@ -85,11 +87,12 @@ class FileLogger(level: Int) : AbstractLogger(level) {
     }
 }
 
-```  
+```
 
-### 调用
 
->创建不同类型的记录器。赋予它们不同的错误级别，并在每个记录器中设置下一个记录器。每个记录器中的下一个记录器代表的是链的一部分。
+### 调用  
+
+> 创建不同类型的记录器。赋予它们不同的错误级别，并在每个记录器中设置下一个记录器。每个记录器中的下一个记录器代表的是链的一部分  
 
 ```kotlin
 
@@ -120,7 +123,7 @@ fun main() {
 
 ```
 
-## 结果输出
+### 结果输出
 
 ```
 Standard console::Logger: this is an information

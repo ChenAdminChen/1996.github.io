@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99062b89-11fe-4500-a4af-a50ac49d028f" name="Default" comment="cas server set up update">
-      <change afterPath="$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-icarus" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-miho" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-miho" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-miho/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-miho/_config.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,30 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/spring-boot-distributed-transaction-processing.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="5544">
-                <caret line="231" column="7" selection-start-line="231" selection-start-column="7" selection-end-line="231" selection-end-column="7" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/linux-command.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3384">
-                <caret line="141" selection-start-line="141" selection-end-line="141" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/learn.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -55,8 +33,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="416">
-                <caret line="127" selection-start-line="127" selection-end-line="127" />
+              <first_editor relative-caret-position="273">
+                <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
                 <folding>
                   <element signature="e#282#283#0" expanded="true" />
                   <element signature="e#316#317#0" expanded="true" />
@@ -65,6 +43,15 @@
                 </folding>
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-576">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -196,17 +183,6 @@
               <item name="ChenAdminChen.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChenAdminChen.github.io" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ChenAdminChen.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChenAdminChen.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChenAdminChen.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChenAdminChen.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -217,7 +193,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556955976794" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556956653576" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java/demo" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -321,7 +297,7 @@
       <workItem from="1556069938552" duration="3888000" />
       <workItem from="1556245381592" duration="753000" />
       <workItem from="1556872151400" duration="718000" />
-      <workItem from="1556951122808" duration="1312000" />
+      <workItem from="1556951122808" duration="1975000" />
     </task>
     <task id="LOCAL-00001" summary="添加 apache">
       <created>1533796025352</created>
@@ -355,13 +331,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137519000" />
+    <option name="totallyTimeSpent" value="138182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1045" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23627557" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23627557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -375,8 +351,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994618" visible="true" weight="0.052752294" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053823" side_tool="true" visible="true" weight="0.052752294" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4994618" visible="true" weight="0.3130734" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053823" side_tool="true" weight="0.5940367" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -607,13 +583,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/hexo-theme-miho/_config.yml" />
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/ehcache.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -740,11 +709,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="416">
-            <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <first_editor relative-caret-position="273">
+            <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
             <folding>
               <element signature="e#282#283#0" expanded="true" />
               <element signature="e#316#317#0" expanded="true" />
