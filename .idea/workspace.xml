@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99062b89-11fe-4500-a4af-a50ac49d028f" name="Default" comment="cas server set up update">
+      <change afterPath="$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/learn.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/learn.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,18 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/react-native.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="480">
-                <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/spring-boot-distributed-transaction-processing.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -41,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/linux-command.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="650">
+              <first_editor relative-caret-position="3384">
                 <caret line="141" selection-start-line="141" selection-end-line="141" />
               </first_editor>
               <second_editor />
@@ -49,12 +39,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/learn.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="228">
-                <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <first_editor relative-caret-position="120">
+                <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="416">
+                <caret line="127" selection-start-line="127" selection-end-line="127" />
+                <folding>
+                  <element signature="e#282#283#0" expanded="true" />
+                  <element signature="e#316#317#0" expanded="true" />
+                  <element signature="e#415#416#0" expanded="true" />
+                  <element signature="e#459#460#0" expanded="true" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -164,14 +172,15 @@
         <option value="$PROJECT_DIR$/source/_posts/spring-boot-distributed-transaction-processing.md" />
         <option value="$PROJECT_DIR$/source/_posts/linux-command.md" />
         <option value="$PROJECT_DIR$/source/_posts/learn.md" />
+        <option value="$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-135" />
-    <option name="y" value="129" />
-    <option name="width" value="1290" />
-    <option name="height" value="811" />
+    <option name="x" value="497" />
+    <option name="y" value="48" />
+    <option name="width" value="1370" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -180,7 +189,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,13 +211,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550826027524" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../git/spring-boot-starter-swagger" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556955976794" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java/demo" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -311,7 +320,8 @@
       <workItem from="1553586419269" duration="222000" />
       <workItem from="1556069938552" duration="3888000" />
       <workItem from="1556245381592" duration="753000" />
-      <workItem from="1556872151400" duration="368000" />
+      <workItem from="1556872151400" duration="718000" />
+      <workItem from="1556951122808" duration="1312000" />
     </task>
     <task id="LOCAL-00001" summary="添加 apache">
       <created>1533796025352</created>
@@ -345,13 +355,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135857000" />
+    <option name="totallyTimeSpent" value="137519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1045" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23250808" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23627557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -365,8 +375,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.39105505" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994618" visible="true" weight="0.052752294" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053823" side_tool="true" visible="true" weight="0.052752294" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -654,6 +664,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/linux-command.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3384">
+            <caret line="141" selection-start-line="141" selection-end-line="141" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/android_mockito.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -710,21 +730,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/linux-command.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/learn.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="650">
-            <caret line="141" selection-start-line="141" selection-end-line="141" />
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/learn.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/java-Chain-of-Responsibility-Pattern.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="228">
-            <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <first_editor relative-caret-position="416">
+            <caret line="127" selection-start-line="127" selection-end-line="127" />
+            <folding>
+              <element signature="e#282#283#0" expanded="true" />
+              <element signature="e#316#317#0" expanded="true" />
+              <element signature="e#415#416#0" expanded="true" />
+              <element signature="e#459#460#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
