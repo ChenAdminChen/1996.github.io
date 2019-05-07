@@ -79,6 +79,9 @@ nano requirement.txt
 #将根目录下的t开头的sql传送到192.168.60.51的根目录下
 scp ~/t*.sql root@192.168.60.51:~/
 
+#从服务器上将文件下载下来
+scp -r root@192.168.60.51:~/web /home/chen/web
+
 ```
 
 #### 远程连接sevicemix
