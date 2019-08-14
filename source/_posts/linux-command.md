@@ -144,3 +144,6 @@ ftp> put data.jar data.jar //将data.jar 传上去 需要定义新文件的名�
 #将yfaf*.sql 的所有文件上传到175.6.56.51服务器上
 scp yfaf*.sql root@175.6.56.51:~/
 ```
+
+#### linux history
+

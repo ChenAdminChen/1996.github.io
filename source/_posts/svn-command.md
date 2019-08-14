@@ -94,3 +94,12 @@ svn commit -m "delete 'file_name'"
 ```
 
 
+> 外部链接
+
+```
+svn pe svn:externals .
+
+<!-- 执行命令后，编辑外部链接的地址 -->
+
+com.jks https://localhost/svn/trunk/07-android_project/keystore/com.jks
+```
