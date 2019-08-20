@@ -4,31 +4,30 @@ date: 2018.11.22 16:00:00
 reward: false
 tags: 
     - mysql
-    - search
+    - full-text
 ---
 
 ## mysql context search
-   mysql的表中的字段进行全文搜索
+   mysql的表中的字段进行全文搜索,(学习地址)[https://dev.mysql.com/doc/refman/8.0/en/fulltext-search.html]
+   
    
 ### 建立指定需要进行全文搜索的字段的的索引
 
 >索引创建
 ```mysql
-ALTER TABLE `commdb`.`user` 
-    DROP INDEX `ft_user` ,
+ALTER TABLE `user` 
     ADD FULLTEXT INDEX `ft_user` (`name`, `email`, `phone`),
     ADD INDEX `index9` (`name` ASC, `email` ASC, `phone` ASC);
     ;
-
 ```
 
 >查询
 ```mysql
 #无法查询一个字段
-SELECT id,name,phone,email from user where match(name,email,phone) against("张");
+SELECT id,name,phone,email from user where match(name,email,phone) against("张" IN BOOLEAN MODE);
 
 #查询成功
-SELECT id,name,phone,email from user where match(name,email,phone) against("张小");
+SELECT id,name,phone,email from user where match(name,email,phone) against("张小" IN BOOLEAN MODE);
 
 ```
     
