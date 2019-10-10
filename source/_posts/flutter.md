@@ -34,6 +34,36 @@ flutter run
 
 ```
 
+## flutter mirror config
+
+sudo nano /etc/profile
+```
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+```
+source /etc/profile
+
+## flutter change channel
+
+```
+# show channel options 
+flutter channel
+```
+
+## flutter change version
+
+```
+# show version options
+flutter version
+
+# upgrade version 
+flutter version 1.5.4
+
+# upgrade version
+flutter upgrade
+
+```
+
 ## flutter image
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flutter中图片的加载分为从网络上获得，或者本地加载图片
