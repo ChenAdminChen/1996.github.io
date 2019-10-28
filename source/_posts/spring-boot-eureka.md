@@ -5,6 +5,8 @@ reward: false
 tags: 
     - spring-boot
     - eureka
+categories: spring-boot
+
 ---
 
 ## spring-boot-eureka

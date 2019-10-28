@@ -4,6 +4,8 @@ date: 2019.03.18 13:35:34
 tags:
   - spring-boot
   - distributed-transaction-processing
+categories: spring-boot
+
 ---
   
 ## XA协议（eXtended Architecture）
