@@ -147,3 +147,14 @@ scp yfaf*.sql root@175.6.56.51:~/
 
 #### linux history
 
+#### search 
+
+```shell script
+
+# find have 'Start datanodes' in *.sh
+grep -RIn 'Starting datanodes' --include="*\.sh"
+
+# find worker* file
+find . -iname 'worker*'
+
+```
