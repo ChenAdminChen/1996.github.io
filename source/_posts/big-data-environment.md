@@ -743,7 +743,6 @@ Caused by: java.lang.ClassNotFoundException: org.apache.tez.dag.api.TezConfigura
 
 ## spark
 
-
 ### 检查是否安装成功
 
 ```shell script
