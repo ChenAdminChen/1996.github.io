@@ -38,6 +38,7 @@ npm install hexo-deployer-git --save
 ```
 
 ### 6.配置_comfig.xml，设置部署分支为master
+
 ```
 deploy:
   type: git

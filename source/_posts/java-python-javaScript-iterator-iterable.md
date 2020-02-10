@@ -111,4 +111,69 @@ class Iterator:
 
 ### iterator
 
-### iterable
+```javascript 1.8
+
+let someString = "someString";
+
+typeof someString[Symbol.iterator];
+
+let iterator = someString[Symbol.iterator]();
+
+iterator + "";
+
+iterator.next();
+
+```
+
+### iterable  
+
+```javascript 1.8
+
+let user = { "name": "test1", "age": 3 };
+
+userIterable = {
+    [Symbol.iterator]() {
+        let keys = Object.keys(user);
+        var index = 0;
+        return {
+            next() {
+                if (keys.length > index) {
+                    let key = keys[index++];
+                    return { value: {key: key, value: user[key]}, done: false };
+                } else {
+                    return { value: null, done: true };
+                }
+            },
+            return(v) {
+                console.log("Done");
+                return { value: v, done: true };
+            }
+        }
+    }
+};
+
+for(var s of userIterable){
+    console.info(s);
+};
+
+```
+
+### generator
+
+```javascript 1.8
+
+//function* defined generator function
+function* generator(){
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+};
+
+let ge = generator();
+console.info(ge.next().value);
+
+//check userIterable[Symbol.iterator] type
+typeof userIterable[Symbol.iterator]
+
+```

@@ -34,7 +34,7 @@ dataLogDir=/home/chen/work/service/zookeeper-3.4.13/zookeeperdir/logs
 clientPort=2181
 
 # 集群的配置
-erver.1=127.0.0.1:2888:3888
+server.1=127.0.0.1:2888:3888
 
 ```
 
@@ -183,26 +183,14 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
     </property>
-        <!-- 这里设置主节点 -->
-    <!-- <property>
-        <name>yarn.resourcemanager.hostname</name>
-
-        <value>127.0.0.1</value>
-   </property>
-   <property>
-
-        <description>The address of the applications manager interface in the RM.</description>
-        <name>yarn.resourcemanager.address</name>
-        <value>${yarn.resourcemanager.hostname}:8032</value>
-    </property> -->
-
+    
      <!-- <property>
         <name>yarn.nodemanager.env-whitelist</name>
         <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
     </property> -->
     
             <!-- 这里设置主节点 -->
-<!--
+
     <property>
             <name>yarn.resourcemanager.hostname</name>
             <value>node01</value>
@@ -237,7 +225,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
             <name>yarn.resourcemanager.webapp.address</name>
             <value>${yarn.resourcemanager.hostname}:8088</value>
     </property>
--->
+
 </configuration>
 ```
 
