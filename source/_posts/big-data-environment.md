@@ -141,6 +141,14 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         <name>dfs.data.dir</name>
         <value>file:///home/chen/work/service/hadoop-3.2.1/hdfs/datanode-test</value>
     </property>
+    
+<!--web request hdfs,but not must  -->
+    <property>
+        <name>dfs.http.address</name>
+        <value>0.0.0.0:50070</value>
+    </property>
+
+
 </configuration>
 ```
 
@@ -195,25 +203,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
     </property>
-<<<<<<< HEAD
-    
-     <!-- <property>
-        <name>yarn.nodemanager.env-whitelist</name>
-        <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
-    </property> -->
-    
-            <!-- 这里设置主节点 -->
-
-    <property>
-            <name>yarn.resourcemanager.hostname</name>
-            <value>node01</value>
-    </property>
-    <property>
-            <description>The address of the applications manager interface in the RM.</description>
-            <name>yarn.resourcemanager.address</name>
-            <value>${yarn.resourcemanager.hostname}:8032</value>
-    </property>
-=======
 
         <!-- 这里设置主节点 -->
      <property>
@@ -227,7 +216,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
         <value>${yarn.resourcemanager.hostname}:8032</value>
     </property> 
    
->>>>>>> a592b6d835aac4590431219b3a2377e915609018
     <property>
             <description>The address of the scheduler interface.</description>
             <name>yarn.resourcemanager.scheduler.address</name>
@@ -254,8 +242,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
             <value>${yarn.resourcemanager.hostname}:8088</value>
     </property>
 
-<<<<<<< HEAD
-=======
    <!-- <property>
         <name>yarn.nodemanager.env-whitelist</name>
         <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
@@ -263,7 +249,6 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
     
             <!-- 这里设置主节点 -->
 
->>>>>>> a592b6d835aac4590431219b3a2377e915609018
 </configuration>
 ```
 
@@ -434,19 +419,338 @@ USE_DEFAULT: 如果没有指定持久化级别，则默认为USE_DEFAULT, 这个
 ``` 
 
 
+test环境redis信息：
+redis-cli -h 121.40.83.65 auth Yftestredis123
 
-
+redis-cli -h 121.40.83.65 -p 6379 -a Yftestredis123
 
 ## kafka
-
-
 
 ## spark
 
 
 ## hive
 
-###
+## configuration 
+
+hive-env.sh
+
+```shell script
+HADOOP_HOME=/home/chen/work/service/hadoop-3.0.0
+HBASE_HOME=/home/chen/work/service/hbase-2.2.2
+
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+HIVE_HOME=/home/chen/work/service/apache-hive-3.1.2-bin
+
+export HIVE_CONF_DIR=$HIVE_HOME/conf
+export HIVE_AUX_JARS_PATH=$HBASE_HOME/lib
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$HADOOP_HOME/lib:$HIVE_HOME/lib
+
+```
+
+hive-site.xml
+```xml
+<configuration>
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://localhost:3306/hivedbH?createDatabaseIfNotExist=true</value>
+    <description>JDBC connect string for a JDBC metastore</description>
+    <!-- 如果 mysql 和 hive 在同一个服务器节点，那么请更改 hadoop02 为 localhost -->
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+    <description>Driver class name for a JDBC metastore</description>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>root</value>
+    <description>username to use against metastore database</description>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>as1996</value>
+    <description>password to use against metastore database</description>
+  </property>
+  <property>
+    <name>datanucleus.autoCreateSchema</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>datanucleus.autoCreateTables</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>datanucleus.autoCreateColumns</name>
+    <value>true</value>
+  </property>
+
+  <!-- 设置 hive仓库的HDFS上的位置 -->
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/hive/data</value>
+    <description>location of default database for the warehouse</description>
+  </property>
+
+  <property>
+    <name>hive.downloaded.resources.dir</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/hive/resources</value>
+    <description>Temporary local directory for added resources in the remote file system.</description>
+  </property>
+
+  <!-- 修改日志位置 -->
+  <property>
+    <name>hive.exec.local.scratchdir</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/hive/HiveJobsLog</value>
+    <description>Local scratch space for Hive jobs</description>
+  </property>
+
+
+  <property>
+    <name>hive.downloaded.resources.dir</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/hive/ResourcesLog</value>
+    <description>Temporary local directory for added resources in the remote file system.</description>
+  </property>
+  <property>
+    <name>hive.querylog.location</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/hive/HiveRunLog</value>
+    <description>Location of Hive run time structured log file</description>
+  </property>
+  <property>
+    <name>hive.server2.logging.operation.log.location</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/hive/OpertitionLog</value>
+    <description>Top level directory where operation tmp are stored if logging functionality is enabled</description>
+  </property>
+
+  <!-- 配置HWI接口 -->
+  <property>
+    <name>hive.hwi.war.file</name>
+    <value>/home/chen/work/service/apache-hive-3.1.2-bin/lib/hive-hwi-2.1.1.jar</value>
+    <description>This sets the path to the HWI war file, relative to ${HIVE_HOME}. </description>
+  </property>
+  <property>
+    <name>hive.hwi.listen.host</name>
+    <value>localhost</value>
+    <description>This is the host address the Hive Web Interface will listen on</description>
+  </property>
+  <property>
+    <name>hive.hwi.listen.port</name>
+    <value>9999</value>
+    <description>This is the port the Hive Web Interface will listen on</description>
+  </property>
+  <property>
+    <name>hive.server2.thrift.bind.host</name>
+    <value>localhost</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.port</name>
+    <value>10000</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.http.port</name>
+    <value>10001</value>
+  </property>
+  <property>
+    <name>hive.server2.thrift.http.path</name>
+    <value>cliservice</value>
+  </property>
+
+  <!-- HiveServer2的WEB UI -->
+  <property>
+    <name>hive.server2.webui.host</name>
+    <value>localhost</value>
+  </property>
+  <property>
+    <name>hive.server2.webui.port</name>
+    <value>10002</value>
+  </property>
+  <property>
+    <name>hive.scratch.dir.permission</name>
+    <value>755</value>
+  </property>
+  <property>
+    <name>hive.server2.enable.doAs</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hive.auto.convert.join</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>spark.dynamicAllocation.enabled</name>
+    <value>true</value>
+    <description>动态分配资源</description>
+  </property>
+
+  <property>
+    <name>hive.execution.engine</name>
+    <value>spark</value>
+    <description>这个值可以使mr/tez/spark中的一个作为hive的执行引擎，mr是默认值，而tez仅hadoop 2支持</description>
+  </property>
+
+  <property>
+    <name>hive.enable.spark.execution.engine</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>spark.home</name>
+    <value>/home/chen/work/service/spark-2.3.0-bin-hadoop2.7</value>
+  </property>
+  <property>
+    <name>spark.master</name>
+    <value>spark://127.0.0.1:7077</value>
+    <!-- <value>yarn-client</value> -->
+  </property>
+
+  <property>
+    <name>spark.serializer</name>
+    <value>org.apache.spark.serializer.KryoSerializer</value>
+  </property>
+  <property>
+    <name>spark.executor.memeory</name>
+    <value>1g</value>
+  </property>
+  <property>
+    <name>spark.driver.memeory</name>
+    <value>1g</value>
+  </property>
+  <!-- <property>
+  <name>spark.executor.extraJavaOptions</name>
+  <value>-XX:+PrintGCDetails -Dkey=value -Dnumbers="one two three"</value>
+</property> -->
+  <!-- 使用Hive on spark时,若不设置下列该配置会出现内存溢出异常 -->
+  <property>
+    <name>spark.driver.extraJavaOptions</name>
+    <value>-XX:PermSize=128M -XX:MaxPermSize=512M</value>
+  </property>
+
+  <property>
+    <name>spark.submit.deployMode</name>
+    <value>client</value>
+  </property>
+  <property>
+    <name>spark.eventLog.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>spark.eventLog.dir</name>
+    <value>hdfs://localhost:9000/spark-log</value>
+  </property>
+
+
+  <property>
+    <name>hive.exec.reducers.bytes.per.reducer</name>
+    <value>1024</value>
+  </property>
+  <property>
+    <name>mapreduce.job.reduces</name>
+    <value>10</value>
+  </property>
+  <property>
+    <name> hive.exec.reducers.bytes.per.reducer</name>
+    <value>10</value>
+  </property>
+
+  <property>
+    <name>spark.yarn.jars</name>
+    <value>hdfs://localhost:8020/spark-jars/*</value>
+  </property>
+
+</configuration>
+```
+
+>  拷贝JDBC包
+```shell script
+cp mysql-connector-java-5.1.19-bin.jar /hive-2.1.1/lib/
+
+```
+  
+> 删除Hadoop之前的jline包，拷贝Hive中jline的扩展包
+```shell script
+cp /hive-2.1.1/lib/jline-2.12.jar /hadoop-3.0.0/share/hadoop/yarn/lib/
+```
+  
+>拷贝tools.jar包
+```shell script
+cp /java8/lib/tools.jar /hive-2.1.1/lib/
+```
+
+> init matedata database
+```shell script
+
+./bin/schematool -dbType mysql -initSchema
+
+```
+
+## start hive
+```shell script
+./bin/hive
+```
+
+### start serverhive2
+```shell script
+./bin/hiveserver2
+
+./bin/hiveserver2 --hiveconf hive.root.logger=INFO,console 
+```
+
+### jdbc connect hive
+```shell script
+./bin/beeline -u jdbc:hive2://localhost:10000/default
+```
+
+### error
+
++ error 1
+
+```
+java.lang.NoClassDefFoundError: org/apache/tez/dag/api/TezConfiguration
+	at org.apache.hadoop.hive.ql.exec.tez.TezSessionPoolSession$AbstractTriggerValidator.startTriggerValidator(TezSessionPoolSession.java:74) ~[hive-exec-3.1.2.jar:3.1.2]
+	at org.apache.hadoop.hive.ql.exec.tez.TezSessionPoolManager.initTriggers(TezSessionPoolManager.java:207) ~[hive-exec-3.1.2.jar:3.1.2]
+	at org.apache.hadoop.hive.ql.exec.tez.TezSessionPoolManager.startPool(TezSessionPoolManager.java:114) ~[hive-exec-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2.initAndStartTezSessionPoolManager(HiveServer2.java:839) ~[hive-service-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2.startOrReconnectTezSessions(HiveServer2.java:822) ~[hive-service-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2.start(HiveServer2.java:745) ~[hive-service-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2.startHiveServer2(HiveServer2.java:1037) [hive-service-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2.access$1600(HiveServer2.java:140) [hive-service-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2$StartOptionExecutor.execute(HiveServer2.java:1305) [hive-service-3.1.2.jar:3.1.2]
+	at org.apache.hive.service.server.HiveServer2.main(HiveServer2.java:1149) [hive-service-3.1.2.jar:3.1.2]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_222]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_222]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_222]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_222]
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:239) [hadoop-common-2.8.5.jar:?]
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:153) [hadoop-common-2.8.5.jar:?]
+Caused by: java.lang.ClassNotFoundException: org.apache.tez.dag.api.TezConfiguration
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382) ~[?:1.8.0_222]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[?:1.8.0_222]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349) ~[?:1.8.0_222]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[?:1.8.0_222]
+	... 16 more
+
+```
+
+> fix error
+在hive-site.xml添加如下配置
+```xml
+<property>
+    <name>hive.server2.active.passive.ha.enable</name>
+    <value>true</value>
+</property>
+```
+
+## spark
+
+### 检查是否安装成功
+
+```shell script
+./bin/spark-submit --master spark://localhost:7077 --class org.apache.spark.examples.SparkPi ../examples/jars/spark-examples_2.11-2.1.1.jar 100
+./bin/spark-submit --master spark://localhost:7077 --class org.apache.spark.examples.SparkPi /home/chen/work/service/spark-2.3.0-bin-hadoop2.7/examples/jars/spark-examples_2.11-2.1.1.jar 100
+
+```
+
 
 
 

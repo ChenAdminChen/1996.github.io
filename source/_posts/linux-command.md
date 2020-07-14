@@ -158,3 +158,17 @@ grep -RIn 'Starting datanodes' --include="*\.sh"
 find . -iname 'worker*'
 
 ```
+
+
+### GBK covert UTF-8
+
++ Linux 下 zip 文件解压乱码如何解决:
+
+```shell
+unzip -O cp936 xxx.zip
+```
+
++ Covert Files' Encode From GBK to UTF-8 in One Time:
+```shell
+find 国外反编译工具.txt -type f -exec bash -c "iconv -f GBK -t UTF-8 {} > utf8_{}" \;
+````

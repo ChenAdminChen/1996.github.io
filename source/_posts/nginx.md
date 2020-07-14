@@ -211,7 +211,12 @@ cp ./objs/nginx /usr/local/nginx/sbin/
 
 7、启动测试
 ```shell script
-./nginx -V
+./nginx -
+```
+
+8、重启
+```shell script
+./nginx -s reload
 ```
 
 ### nginx learn address
@@ -219,4 +224,4 @@ cp ./objs/nginx /usr/local/nginx/sbin/
 ref1: https://ciphertrick.com/load-balancing-apis-using-nginx-with-example/
 ref2: http://nginx.org/en/docs/stream/stream_processing.html
 ref3: http://rookiezhou.top/nginx-%E5%AE%9E%E7%8E%B0-TCP-%E4%BB%A3%E7%90%86%E5%8F%8A%E5%85%B6%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B-stream-%E6%A8%A1%E5%9D%97/
-ref4: https://blog.csdn.net/slovyz/article/details/53839488
+ref4: https://bVlog.csdn.net/slovyz/article/details/53839488
