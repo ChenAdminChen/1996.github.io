@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>big-data-hbase-hive | chen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Chen_Chen Blog">
+  
+  <meta name="description" content="hbase-hivelearn address hbase table information describe ‘f’123456Table f is ENABLED">
+<meta name="keywords" content="big-data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="big-data-hbase-hive">
+<meta property="og:url" content="https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/index.html">
+<meta property="og:site_name" content="chen">
+<meta property="og:description" content="hbase-hivelearn address hbase table information describe ‘f’123456Table f is ENABLED">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-02-10T13:02:20.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="big-data-hbase-hive">
+<meta name="twitter:description" content="hbase-hivelearn address hbase table information describe ‘f’123456Table f is ENABLED">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Chen&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Chen&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个 IT
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="CHNE_CHEN" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github"  href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-big-data-hbase-hive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      big-data-hbase-hive
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-11-25
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="hbase-hive"><a href="#hbase-hive" class="headerlink" title="hbase-hive"></a>hbase-hive</h2><p><a href="https://cwiki.apache.org/confluence/display/Hive/HBaseintegration" target="_blank" rel="noopener">learn address</a></p>
+<h3 id="hbase-table-information"><a href="#hbase-table-information" class="headerlink" title="hbase table information"></a>hbase table information</h3><blockquote>
+<p>describe ‘f’<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Table f is ENABLED                                                                                                                                                                            </span><br><span class="line">f                                                                                                                                                                                             </span><br><span class="line">COLUMN FAMILIES DESCRIPTION                                                                                                                                                                   </span><br><span class="line">&#123;NAME =&gt; 'f', VERSIONS =&gt; '1', EVICT_BLOCKS_ON_CLOSE =&gt; 'false', NEW_VERSION_BEHAVIOR =&gt; 'false', KEEP_DELETED_CELLS =&gt; 'FALSE', CACHE_DATA_ON_WRITE =&gt; 'false', DATA_BLOCK_ENCODING =&gt; 'NONE'</span><br><span class="line">, TTL =&gt; 'FOREVER', MIN_VERSIONS =&gt; '0', REPLICATION_SCOPE =&gt; '0', BLOOMFILTER =&gt; 'ROW', CACHE_INDEX_ON_WRITE =&gt; 'false', IN_MEMORY =&gt; 'false', CACHE_BLOOMS_ON_WRITE =&gt; 'false', PREFETCH_BLO</span><br><span class="line">CKS_ON_OPEN =&gt; 'false', COMPRESSION =&gt; 'NONE', BLOCKCACHE =&gt; 'true', BLOCKSIZE =&gt; '65536'&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>scan ‘f’<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ROW                                              COLUMN+CELL                                                                                                                                  </span><br><span class="line"> row1                                            column=f:name, timestamp=1574480231593, value=chen                                                                                           </span><br><span class="line"> row2                                            column=f:age, timestamp=1574660750499, value=11                                                                                              </span><br><span class="line"> row3                                            column=f:name, timestamp=1574666237806, value=kevin</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>put<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">put &apos;f&apos;,&apos;row6&apos;,&apos;f:age&apos;,34</span><br><span class="line">put &apos;f&apos;,&apos;row6&apos;,&apos;f:name&apos;,&apos;qi&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>scan ‘f’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ROW                                              COLUMN+CELL                                                                                                                                  </span><br><span class="line"> row1                                            column=f:name, timestamp=1574480231593, value=chen                                                                                           </span><br><span class="line"> row2                                            column=f:age, timestamp=1574660750499, value=11                                                                                              </span><br><span class="line"> row3                                            column=f:name, timestamp=1574666237806, value=kevin                                                                                          </span><br><span class="line"> row4                                            column=f:age, timestamp=1574668813422, value=12                                                                                              </span><br><span class="line"> row4                                            column=f:name, timestamp=1574668813422, value=test                                                                                           </span><br><span class="line"> row5                                            column=f:age, timestamp=1574669091951, value=13                                                                                              </span><br><span class="line"> row5                                            column=f:name, timestamp=1574669091951, value=li                                                                                             </span><br><span class="line"> row6                                            column=f:age, timestamp=1574672582983, value=34                                                                                              </span><br><span class="line"> row6                                            column=f:name, timestamp=1574672608454, value=qi</span><br></pre></td></tr></table></figure>
+<h3 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h3><p>hive table information from hbase</p>
+<blockquote>
+<p>create ‘hive_f’<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">EXTERNAL</span> <span class="keyword">TABLE</span> hive_f(<span class="keyword">id</span> <span class="keyword">string</span>, <span class="keyword">value</span> <span class="keyword">string</span>,age <span class="built_in">int</span>) </span><br><span class="line"><span class="keyword">STORED</span> <span class="keyword">BY</span> <span class="string">'org.apache.hadoop.hive.hbase.HBaseStorageHandler'</span></span><br><span class="line"><span class="keyword">WITH</span> SERDEPROPERTIES (<span class="string">"hbase.columns.mapping"</span> = <span class="string">":key,f:name,f:age"</span>)</span><br><span class="line">TBLPROPERTIES(<span class="string">"hbase.table.name"</span> = <span class="string">"f"</span>, <span class="string">"hbase.mapred.output.outputtable"</span> = <span class="string">"f"</span>);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>select * from hive_f<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">row1	chen	NULL</span><br><span class="line">row2	NULL	11</span><br><span class="line">row3	kevin	NULL</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>insert into hive_f(id,value,age) values(‘row4’,’test’,12)</p>
+</blockquote>
+<ul>
+<li>error</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Application Timeout (Remaining Time):	Unlimited</span><br><span class="line">Diagnostics:	</span><br><span class="line">Application application_1574645197988_0001 failed 2 times due to AM Container for appattempt_1574645197988_0001_000002 exited with exitCode: 1</span><br><span class="line">Failing this attempt.Diagnostics: [2019-11-25 15:33:38.304]Exception from container-launch.</span><br><span class="line">Container id: container_1574645197988_0001_02_000001</span><br><span class="line">Exit code: 1</span><br><span class="line">[2019-11-25 15:33:38.306]Container exited with a non-zero exit code 1. Error file: prelaunch.err.</span><br><span class="line">Last 4096 bytes of prelaunch.err :</span><br><span class="line">Last 4096 bytes of stderr :</span><br><span class="line">错误: 找不到或无法加载主类 org.apache.hadoop.mapreduce.v2.app.MRAppMaster</span><br><span class="line">[2019-11-25 15:33:38.307]Container exited with a non-zero exit code 1. Error file: prelaunch.err.</span><br><span class="line">Last 4096 bytes of prelaunch.err :</span><br><span class="line">Last 4096 bytes of stderr :</span><br><span class="line">错误: 找不到或无法加载主类 org.apache.hadoop.mapreduce.v2.app.MRAppMaster</span><br><span class="line">For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1574645197988_0001 Then click on links to logs of each attempt.</span><br><span class="line">. Failing the application.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>fix (configuration hadoop) </li>
+</ul>
+<p><del>+ get hadoop classpath</del><br><del>./bin/hadoop classpath</del></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/home/chen/work/service/hadoop-3.0.0/etc/hadoop:/home/chen/work/service/hadoop-3.0.0/share/hadoop/</span><br><span class="line">common/lib/*:/home/chen/work/service/hadoop-3.0.0/share/hadoop/common/*:/home/chen/work/service/hadoop-3.0.0</span><br><span class="line">/share/hadoop/hdfs:/home/chen/work/service/hadoop-3.0.0/share/hadoop/hdfs/lib/*:/home/chen/work/service</span><br><span class="line">/hadoop-3.0.0/share/hadoop/hdfs/*:/home/chen/work/service/hadoop-3.0.0/share/hadoop/mapreduce/*:</span><br><span class="line">/home/chen/work/service/hadoop-3.0.0/share/hadoop/yarn:/home/chen/work/service/hadoop-3.0.0/</span><br><span class="line">share/hadoop/yarn/lib/*:/home/chen/work/service/hadoop-3.0.0/share/hadoop/yarn/*</span><br></pre></td></tr></table></figure>
+<ul>
+<li>configuration hadoop mapred-site.xml</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.application.classpath<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>$HADOOP_HOME/share/hadoop/mapreduce/*<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hbase scan ‘f’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ROW                                              COLUMN+CELL                                                                                                                                  </span><br><span class="line"> row1                                            column=f:name, timestamp=1574480231593, value=chen                                                                                           </span><br><span class="line"> row2                                            column=f:age, timestamp=1574660750499, value=11                                                                                              </span><br><span class="line"> row3                                            column=f:name, timestamp=1574666237806, value=kevin                                                                                          </span><br><span class="line"> row4                                            column=f:age, timestamp=1574668813422, value=12                                                                                              </span><br><span class="line"> row4                                            column=f:name, timestamp=1574668813422, value=test                                                                                           </span><br><span class="line"> row5                                            column=f:age, timestamp=1574669091951, value=13                                                                                              </span><br><span class="line"> row5                                            column=f:name, timestamp=1574669091951, value=li                                                                                             </span><br><span class="line">5 row(s)</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年02月10日 21:02</p>
+        <p>原始链接： <a class="post-url" href="/2019/11/25/big-data-hbase-hive/" title="big-data-hbase-hive">https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/</a></p>
+        <footer>
+            <a href="https://chenadminchen.github.io">
+                <img src="/images/logo.png" alt="chen">
+                chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/&title=《big-data-hbase-hive》 — chen&pic=https://chenadminchen.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/&title=《big-data-hbase-hive》 — chen&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《big-data-hbase-hive》 — chen&url=https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/&via=https://chenadminchen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://chenadminchen.github.io/2019/11/25/big-data-hbase-hive/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/big-data/" class="color4">big-data</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hbase-hive"><span class="post-toc-text">hbase-hive</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hbase-table-information"><span class="post-toc-text">hbase table information</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hive"><span class="post-toc-text">hive</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/12/16/install-mongodb/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          mongodb
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/11/22/linux-command-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">linux</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://chenadminchen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/filter/">filter</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/iterator/">iterator</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/learn/">learn</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/mysqlx/">mysqlx</a><a class="category-link" href="/categories/react-native/">react-native</a><a class="category-link" href="/categories/spring-boot/">spring-boot</a><a class="category-link" href="/categories/window/">window</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

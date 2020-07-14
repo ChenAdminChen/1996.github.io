@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Obsevable parttern | chen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Chen_Chen Blog">
+  
+  <meta name="description" content="观察者模式&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;观察者模式是对象的行为模式，又叫发布-订阅(Publish/Subscribe)模式、模型-视图(Model/View)模式、源-监听器(Source/Listener)模式或从属者(Dependents)模式。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta name="keywords" content="javaScript,java,python,observable">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Obsevable parttern">
+<meta property="og:url" content="https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/index.html">
+<meta property="og:site_name" content="chen">
+<meta property="og:description" content="观察者模式&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;观察者模式是对象的行为模式，又叫发布-订阅(Publish/Subscribe)模式、模型-视图(Model/View)模式、源-监听器(Source/Listener)模式或从属者(Dependents)模式。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/ChenAdminChen/1996_imgs/master/blog_img/java/observer.png">
+<meta property="og:updated_time" content="2019-07-06T08:45:58.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Obsevable parttern">
+<meta name="twitter:description" content="观察者模式&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;观察者模式是对象的行为模式，又叫发布-订阅(Publish/Subscribe)模式、模型-视图(Model/View)模式、源-监听器(Source/Listener)模式或从属者(Dependents)模式。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ChenAdminChen/1996_imgs/master/blog_img/java/observer.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Chen&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Chen&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个 IT
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="CHNE_CHEN" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github"  href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Obsevable-parttern" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Obsevable parttern
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-25
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;观察者模式是对象的行为模式，又叫发布-订阅(Publish/Subscribe)模式、模型-视图(Model/View)模式、源-监听器(Source/Listener)模式或从属者(Dependents)模式。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。</p>
+<h2 id="观察者模式组成"><a href="#观察者模式组成" class="headerlink" title="观察者模式组成"></a>观察者模式组成</h2><ul><br><li>1.抽象主题角色：把所有对观察者对象的引用保存在一个集合中，每个抽象主题角色都可以有任意数量的观察者。抽象主题提供一个接口，可以增加和删除观察者角色。一般用一个抽象类和接口来实现。</li><br><li>2.抽象观察者角色：为所有具体的观察者定义一个接口，在得到主题的通知时更新自己。</li><br><li>3.具体主题角色：在具体主题内部状态改变时，给所有登记过的观察者发出通知。具体主题角色通常用一个子类实现。</li><br><li>4.具体观察者角色：该角色实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题的状态相协调。通常用一个子类实现。如果需要，具体观察者角色可以保存一个指向具体主题角色的引用。</li><br></ul><br><img src="https://raw.githubusercontent.com/ChenAdminChen/1996_imgs/master/blog_img/java/observer.png" alt="observable的图片"><br><br>## 观察者模式优点<br><br>　　第一、观察者模式在被观察者和观察者之间建立一个抽象的耦合。被观察者角色所知道的只是一个具体观察者列表，每一个具体观察者都符合一个抽象观察者的接口。被观察者并不认识任何一个具体观察者，它只知道它们都有一个共同的接口。<br>　　由于被观察者和观察者没有紧密地耦合在一起，因此它们可以属于不同的抽象化层次。如果被观察者和观察者都被扔到一起，那么这个对象必然跨越抽象化和具体化层次。<br><br>　　第二、观察者模式支持广播通讯。被观察者会向所有的登记过的观察者发出通知<br>　　观察者模式有下面的缺点：<br>　　第一、如果一个被观察者对象有很多的直接和间接的观察者的话，将所有的观察者都通知到会花费很多时间。<br>　　第二、如果在被观察者之间有循环依赖的话，被观察者会触发它们之间进行循环调用，导致系统崩溃。在使用观察者模式是要特别注意这一点。<br>　　第三、如果对观察者的通知是通过另外的线程进行异步投递的话，系统必须保证投递是以自恰的方式进行的。<br>　　第四、虽然观察者模式可以随时使观察者知道所观察的对象发生了变化，但是观察者模式没有相应的机制使观察者知道所观察的对象是怎么发生变化的。<br><br>### java库的observable与observer<br><br>&nbsp;&nbsp;&nbsp;&nbsp;学习地址：<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/util/Observable.html</a><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在java中观察者模式存在被观察者与观察者的接口类，若需要实现观察者模式时，可以继承java.util.Observable及实现java.util.Observer两个接口就可以完成了，以下为实现两个接口的实现<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">// observer</span><br><span class="line">public class ConcretObserver implements Observer&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void update(Observable o, Object arg) &#123;</span><br><span class="line">        System.out.println(o+ <span class="string">"\t\t"</span>+ arg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//observable</span><br><span class="line">public class ConcretObservable extends Observable &#123;</span><br><span class="line">    private String data = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    public String retrieveData()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void changeData(String data)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> ( !this.data.equals( data) )</span><br><span class="line">        &#123;</span><br><span class="line">            this.data = data;</span><br><span class="line">            setChanged();     //记录上一次广播的数据与这一次的是否一样，若一样则不广播</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        notifyObservers(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//<span class="built_in">test</span></span><br><span class="line">public class TestObservable &#123;</span><br><span class="line">     public static void main(String args[]) &#123;</span><br><span class="line"></span><br><span class="line">         ConcretObservable observable = new ConcretObservable();</span><br><span class="line"></span><br><span class="line">         Observer observer = new ConcretObserver();</span><br><span class="line">         Observer observer1 = new ConcretObserver();</span><br><span class="line">         Observer observer2 = new ConcretObserver();</span><br><span class="line">         Observer observer3 = new ConcretObserver();</span><br><span class="line"></span><br><span class="line">         observable.addObserver(observer);</span><br><span class="line">         observable.addObserver(observer1);</span><br><span class="line">         observable.addObserver(observer2);</span><br><span class="line">         observable.addObserver(observer3);</span><br><span class="line"></span><br><span class="line">         observable.changeData(<span class="string">"测试"</span>);</span><br><span class="line">         observable.changeData(<span class="string">"测试"</span>);</span><br><span class="line">         observable.changeData(<span class="string">"测试1"</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br>### 自定义实现观察者模式<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若将观察者模式提升到一个协议层，可以大概认为只要做到以下两个原则，便可认为它是一个观察者模式<br><ul><br>    <li>一个观察者类中存在一个动作方法</li><br>    <li>被观察者类中应存在一个存观察者的set集合，添加观察者的方法、删除观察者的方法及循环调用观察者的动作的方法</li><br></ul>
+
+<h4 id="java实现观察者模式"><a href="#java实现观察者模式" class="headerlink" title="java实现观察者模式"></a>java实现观察者模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">//observble</span><br><span class="line">public interface Watched &#123;</span><br><span class="line">    void addWatch(Watcher watcher);</span><br><span class="line"></span><br><span class="line">    void removeWatch(Watcher watcher);</span><br><span class="line"></span><br><span class="line">    void notifyWatchers(String str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 具体的被观察者</span><br><span class="line"> * Created by chen on 2017/12/19.</span><br><span class="line"> */</span><br><span class="line">public class ConcretWatched implements Watched &#123;</span><br><span class="line">    private List&lt;Watcher&gt; watchers = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void addWatch(Watcher watcher) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!watchers.contains(watcher))&#123;</span><br><span class="line">            watchers.add(watcher);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void removeWatch(Watcher watcher) &#123;</span><br><span class="line">        watchers.remove(watcher);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 自动调用实际上是主题进行调用的</span><br><span class="line">     * @param str</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public void notifyWatchers(String str) &#123;</span><br><span class="line">        <span class="keyword">for</span> (Watcher watcher : watchers)</span><br><span class="line">        &#123;</span><br><span class="line">            watcher.update(str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//observer</span><br><span class="line">public interface Watcher &#123;</span><br><span class="line">    void update(String str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 具体的观察者</span><br><span class="line"> * Created by chen on 2017/12/19.</span><br><span class="line"> */</span><br><span class="line">public class ConcretWatcher implements Watcher &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void update(String str) &#123;</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//<span class="built_in">test</span></span><br><span class="line">public class TestWatch &#123;</span><br><span class="line">     public static void main(String args[]) &#123;</span><br><span class="line">         Watched  wathced = new ConcretWatched();</span><br><span class="line"></span><br><span class="line">         Watcher watcher = new ConcretWatcher();</span><br><span class="line">         Watcher watcher1 = new ConcretWatcher();</span><br><span class="line">         Watcher watcher2 = new ConcretWatcher();</span><br><span class="line">         Watcher watcher3 = new ConcretWatcher();</span><br><span class="line"></span><br><span class="line">         wathced.addWatch(watcher);</span><br><span class="line">         wathced.addWatch(watcher1);</span><br><span class="line">         wathced.addWatch(watcher2);</span><br><span class="line">         wathced.addWatch(watcher3);</span><br><span class="line"></span><br><span class="line">         wathced.notifyWatchers(<span class="string">"测试"</span>);</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="javaScript实现观察者模式"><a href="#javaScript实现观察者模式" class="headerlink" title="javaScript实现观察者模式"></a>javaScript实现观察者模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#订阅者</span></span><br><span class="line">class Subscriber&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    update(message)&#123;</span><br><span class="line">        console.log (this.name + “收到通知消息”+ message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#生产者</span></span><br><span class="line">class publisher&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span></span>()&#123;</span><br><span class="line">        this.observers = new Set();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    register(who)&#123;</span><br><span class="line">        this.observers.add(who);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    unregister(who)&#123;</span><br><span class="line">        this.observers.delete(who);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dispatch(message)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">let</span> observer of this.observers)&#123;</span><br><span class="line">            observer.update(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="python实现观察者模式"><a href="#python实现观察者模式" class="headerlink" title="python实现观察者模式"></a>python实现观察者模式</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学习地址：<a href="http://www.giantflyingsaucer.com/blog/?p=5117" target="_blank" rel="noopener">http://www.giantflyingsaucer.com/blog/?p=5117</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Subscriber:</span><br><span class="line">     def __init__(self, name):</span><br><span class="line">         self.name = name</span><br><span class="line">     def update(self, message):</span><br><span class="line">         <span class="built_in">print</span>(<span class="string">'&#123;&#125; got message "&#123;&#125;"'</span>.format(self.name, message))</span><br><span class="line"></span><br><span class="line">class Publisher:</span><br><span class="line">     def __init__(self):</span><br><span class="line">         self.subscribers = <span class="built_in">set</span>()</span><br><span class="line">     def register(self,who):</span><br><span class="line">         self.subscribers.add(who)</span><br><span class="line">     def unregister(self, who):</span><br><span class="line">         self.subscribers.discard(who)</span><br><span class="line">     def dispathc(self, message):</span><br><span class="line">         <span class="keyword">for</span> subscriber <span class="keyword">in</span> self.subscribers:</span><br><span class="line">             subscriber.update(message)</span><br><span class="line"></span><br><span class="line">pub = Publisher()</span><br><span class="line">bob = Subscriber(<span class="string">'Bob'</span>)</span><br><span class="line">alice = Subscriber(<span class="string">'Alice'</span>)</span><br><span class="line">john = Subscriber(<span class="string">'John'</span>)</span><br><span class="line">pub.register(bob)</span><br><span class="line">pub.register(alice)</span><br><span class="line">pub.register(john)</span><br><span class="line">pub.dispatch(<span class="string">"It's lunchtime!"</span>)</span><br><span class="line">pub.unregister(john)</span><br><span class="line">pub.dispatch(<span class="string">"Time for dinner"</span>)</span><br></pre></td></tr></table></figure></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年07月06日 16:45</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/25/Obsevable-parttern/" title="Obsevable parttern">https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/</a></p>
+        <footer>
+            <a href="https://chenadminchen.github.io">
+                <img src="/images/logo.png" alt="chen">
+                chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/&title=《Obsevable parttern》 — chen&pic=https://chenadminchen.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/&title=《Obsevable parttern》 — chen&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Obsevable parttern》 — chen&url=https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/&via=https://chenadminchen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://chenadminchen.github.io/2017/12/25/Obsevable-parttern/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javaScript/" class="color1">javaScript</a>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+    <a href="/tags/observable/" class="color1">observable</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#观察者模式"><span class="post-toc-text">观察者模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#观察者模式组成"><span class="post-toc-text">观察者模式组成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#java实现观察者模式"><span class="post-toc-text">java实现观察者模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#javaScript实现观察者模式"><span class="post-toc-text">javaScript实现观察者模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#python实现观察者模式"><span class="post-toc-text">python实现观察者模式</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/01/java-callBack/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java callBack function讲解
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/25/tigase-pubsub/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">tigase pubsub的xml格式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://chenadminchen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/filter/">filter</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/iterator/">iterator</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/learn/">learn</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/mysqlx/">mysqlx</a><a class="category-link" href="/categories/react-native/">react-native</a><a class="category-link" href="/categories/spring-boot/">spring-boot</a><a class="category-link" href="/categories/window/">window</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

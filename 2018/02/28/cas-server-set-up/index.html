@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>cas server set up | chen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Chen_Chen Blog">
+  
+  <meta name="description" content="cas的学习下载基于5.2x版本的cas服务器&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下载地址 cas.properties文件配置&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在项目的cas-overlay-template\etc\cas\config文件下需要配置cas.properties内相关的配置内容。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;以下是相关配置文件 123">
+<meta name="keywords" content="cas,openid,单点登录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cas server set up">
+<meta property="og:url" content="https://chenadminchen.github.io/2018/02/28/cas-server-set-up/index.html">
+<meta property="og:site_name" content="chen">
+<meta property="og:description" content="cas的学习下载基于5.2x版本的cas服务器&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下载地址 cas.properties文件配置&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在项目的cas-overlay-template\etc\cas\config文件下需要配置cas.properties内相关的配置内容。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;以下是相关配置文件 123">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-06T08:45:58.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cas server set up">
+<meta name="twitter:description" content="cas的学习下载基于5.2x版本的cas服务器&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下载地址 cas.properties文件配置&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在项目的cas-overlay-template\etc\cas\config文件下需要配置cas.properties内相关的配置内容。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;以下是相关配置文件 123">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Chen&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Chen&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个 IT
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="CHNE_CHEN" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github"  href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-cas-server-set-up" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      cas server set up
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-02-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="cas的学习"><a href="#cas的学习" class="headerlink" title="cas的学习"></a>cas的学习</h3><h4 id="下载基于5-2x版本的cas服务器"><a href="#下载基于5-2x版本的cas服务器" class="headerlink" title="下载基于5.2x版本的cas服务器"></a>下载基于5.2x版本的cas服务器</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/apereo/cas-overlay-template" title="github地址" target="_blank" rel="noopener">下载地址</a></p>
+<h4 id="cas-properties文件配置"><a href="#cas-properties文件配置" class="headerlink" title="cas.properties文件配置"></a>cas.properties文件配置</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在项目的cas-overlay-template\etc\cas\config文件下需要配置cas.properties内相关的配置内容。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;以下是相关配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#server config</span></span><br><span class="line">cas.server.name: https://localhost</span><br><span class="line">cas.server.prefix: https://localhost/cas</span><br><span class="line"></span><br><span class="line"><span class="comment">#logger，可在log4j2.xml中设置logger lever</span></span><br><span class="line">logging.config: file:/etc/cas/config/log4j2.xml</span><br><span class="line"></span><br><span class="line"><span class="comment">#adminPagesSecurity</span></span><br><span class="line">cas.adminPagesSecurity.ip=127\.0\.0\.1</span><br><span class="line">cas.adminPagesSecurity.adminRoles[0]=ROLE_ADMIN</span><br><span class="line">cas.adminPagesSecurity.actuatorEndpointsEnabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#openid connect Authentication</span></span><br><span class="line">cas.authn.oidc.issuer=https://localhost/cas/oidc</span><br><span class="line">cas.authn.oidc.jwksFile=file:/etc/cas/keystore.jwks</span><br><span class="line">cas.authn.oidc.dynamicClientRegistrationMode=OPEN</span><br><span class="line">cas.authn.oidc.scopes=openid,profile,email,address,phone,offline_access</span><br><span class="line">cas.authn.oidc.claims=sub,name,preferred_username,family_name,given_name,middle_name,given_name,profile,picture,nickname,website,zoneinfo,locale,updated_at,birthdate,email,email_verified,phone_number,phone_number_verified,address</span><br><span class="line">cas.authn.oidc.claimsMap.given_name=email</span><br><span class="line">cas.authn.oidc.claimsMap.phone_number=phone</span><br><span class="line"></span><br><span class="line"><span class="comment">#accept.authn.users=casuser::Mellon,ROLE_ADMIN</span></span><br><span class="line"><span class="comment">#用户名：casuser</span></span><br><span class="line"><span class="comment">#密码：Mellon</span></span><br><span class="line"><span class="comment">#取消有静态登录的警告</span></span><br><span class="line">cas.authn.accept.users=</span><br><span class="line"></span><br><span class="line"><span class="comment">#service注册所在目录</span></span><br><span class="line"><span class="comment"># json service registry</span></span><br><span class="line">cas.serviceRegistry.watcherEnabled=<span class="literal">true</span></span><br><span class="line">cas.serviceRegistry.config.location=file:/etc/cas/services</span><br><span class="line">cas.serviceRegistry.initFromJson=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># json service registry</span></span><br><span class="line"><span class="comment">#cas.service-registry.init-from-json=true</span></span><br><span class="line"><span class="comment">#cas.service-registry.json.location=file:/etc/cas/services</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># mysql database</span></span><br><span class="line">cas.serviceRegistry.jpa.ddlAuto=create-drop</span><br><span class="line">cas.serviceRegistry.jpa.user=root</span><br><span class="line">cas.serviceRegistry.jpa.password=xxx</span><br><span class="line">cas.serviceRegistry.jpa.driverClass=com.mysql.jdbc.Driver</span><br><span class="line">cas.serviceRegistry.jpa.url=jdbc:mysql://127.0.0.1:3306/cas?useUnicode=<span class="literal">true</span>&amp;amp;characterEncoding=UTF-8&amp;amp;useTimezone=<span class="literal">true</span>&amp;amp;serverTimezone=GMT%2B8:00&amp;amp;zeroDateTimeBehavior=round</span><br><span class="line">cas.serviceRegistry.jpa.dialect=org.hibernate.dialect.HSQLDialect</span><br><span class="line">cas.serviceRegistry.jpa.autocommit=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># login databases configure</span></span><br><span class="line">cas.authn.jdbc.query[0].user=root</span><br><span class="line">cas.authn.jdbc.query[0].password=xxx</span><br><span class="line">cas.authn.jdbc.query[0].driverClass=com.mysql.jdbc.Driver</span><br><span class="line">cas.authn.jdbc.query[0].url=jdbc:mysql://127.0.0.1:3306/yfaf?useUnicode=<span class="literal">true</span>&amp;amp;characterEncoding=UTF-8&amp;amp;useTimezone=<span class="literal">true</span>&amp;amp;serverTimezone=GMT%2B8:00&amp;amp;zeroDateTimeBehavior=round</span><br><span class="line">cas.authn.jdbc.query[0].dialect=org.hibernate.dialect.MySQL5Dialect</span><br><span class="line"></span><br><span class="line"><span class="comment">#login certification</span></span><br><span class="line"></span><br><span class="line">cas.authn.jdbc.query[0].sql=SELECT LOWER(password) as password, deleted, account, name, nickname, date, phone, email, sex as gender, im_user_id as im, safety_id as safe_aid, com_id as company FROM user WHERE account=?</span><br><span class="line">cas.authn.jdbc.query[0].fieldPassword=password</span><br><span class="line">cas.authn.jdbc.query[0].passwordEncoder.type=DEFAULT</span><br><span class="line">cas.authn.jdbc.query[0].passwordEncoder.encodingAlgorithm=MD5</span><br><span class="line">cas.authn.jdbc.query[0].passwordEncoder.characterEncoding=UTF-8</span><br><span class="line"></span><br><span class="line"><span class="comment">#ticket configure</span></span><br><span class="line">cas.ticket.registry.inMemory.cache=<span class="literal">false</span></span><br><span class="line">cas.ticket.registry.jpa.ddlAuto=create-drop</span><br><span class="line">cas.ticket.registry.jpa.user=root</span><br><span class="line">cas.ticket.registry.jpa.password=as1996</span><br><span class="line">cas.ticket.registry.jpa.driverClass=com.mysql.jdbc.Driver</span><br><span class="line">cas.ticket.registry.jpa.url=jdbc:mysql://chen-PC:3306/cas?useUnicode=<span class="literal">true</span>&amp;amp;characterEncoding=UTF-8&amp;amp;useTimezone=<span class="literal">true</span>&amp;amp;serverTimezone=GMT%2B8:00&amp;amp;zeroDateTimeBehavior=round</span><br><span class="line"></span><br><span class="line"><span class="comment">#用作https://localhost/cas/status/attrresolution页面查询</span></span><br><span class="line">cas.authn.attributeRepository.jdbc[0].user=root</span><br><span class="line">cas.authn.attributeRepository.jdbc[0].password=as1996</span><br><span class="line">cas.authn.attributeRepository.jdbc[0].driverClass=com.mysql.jdbc.Driver</span><br><span class="line">cas.authn.attributeRepository.jdbc[0].url=jdbc:mysql://chen-PC:3306/yfaf?useUnicode=<span class="literal">true</span>&amp;amp;characterEncoding=UTF-8&amp;amp;useTimezone=<span class="literal">true</span>&amp;amp;serverTimezone=GMT%2B8:00&amp;amp;zeroDateTimeBehavior=round</span><br><span class="line"></span><br><span class="line">cas.authn.attributeRepository.jdbc[0].singleRow=<span class="literal">true</span></span><br><span class="line">cas.authn.attributeRepository.jdbc[0].requireAllAttributes=<span class="literal">true</span></span><br><span class="line">cas.authn.attributeRepository.jdbc[0].sql=SELECT account, name, nickname, date, phone, email, sex as gender, im_user_id as im, safety_id as safe_aid, com_id as company FROM user WHERE account=&#123;0&#125;</span><br><span class="line">cas.authn.attributeRepository.jdbc[0].username=account</span><br><span class="line"></span><br><span class="line"><span class="comment">#用作oidc查询映射</span></span><br><span class="line">cas.authn.attributeRepository.defaultAttributesToRelease=name,account</span><br><span class="line"><span class="comment">#,nickname,date,phone,email,gender,im,safe_aid,company</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#将cas页面中查看 sso session/ register service page </span></span><br><span class="line">cas.monitor.endpoints.enabled=<span class="literal">true</span>   </span><br><span class="line">cas.monitor.endpoints.sensitive=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">cas.monitor.endpoints.dashboard.enabled=<span class="literal">true</span></span><br><span class="line">cas.monitor.endpoints.dashboard.sensitive=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">cas.monitor.endpoints.status.enabled=<span class="literal">true</span>   </span><br><span class="line">cas.monitor.endpoints.status.sensitive=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#开启 jwt token</span></span><br><span class="line">cas.authn.token.crypto.encryptionEnabled=<span class="literal">true</span></span><br><span class="line">cas.authn.token.crypto.signingEnabled=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#jwt key,若key，未设置，则在启动时会自动生成下面的key</span></span><br><span class="line">cas.authn.token.crypto.encryption.key=xPZkj_A8RXlQfvD8EwmT7mU2TseRrcWHjM8q3R1AGik</span><br><span class="line">cas.authn.token.crypto.signing.key=PKH_BNwqiUDkMey108ix1fTWktUGXkALNBqoyE1NBT_RABe1WPY42FAqJOwCltLAa6duzvANst-Kxx7lYctrrg</span><br><span class="line"></span><br><span class="line">cas.tgc.crypto.encryption.key=kJbeEjRlDRQCixHWwn2WpjiXAwXzan8h_o-jCv89k90</span><br><span class="line">cas.tgc.crypto.signing.key=pR0GCaP_10pxitFBh2I2KNEGrDF9vb6HodyyV2u5u-3DkQiXd6GcSACeDfWxVsfS345ao99cIvF8ox4y_kjdSw</span><br><span class="line"></span><br><span class="line">cas.webflow.crypto.signing.key=TnK9AvAkwAbvFLIIZgtoT1K3YiGBWoebDIWC_8bozIfT2XKFGxQxochwa-d4Q_2WRwYwDv4Kw_d930MwywZHeg</span><br><span class="line">cas.webflow.crypto.encryption.key=9fuRE_lJHtFmCVJUi8K3xQ</span><br></pre></td></tr></table></figure>
+<h4 id="注册服务"><a href="#注册服务" class="headerlink" title="注册服务"></a>注册服务</h4><p>service.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;@class&quot; : &quot;org.apereo.cas.services.RegexRegisteredService&quot;,</span><br><span class="line">  &quot;serviceId&quot; : &quot;^https?://.*&quot;, //所注册的服务地址</span><br><span class="line">  &quot;name&quot; : &quot;CAS Spring Secured App&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;This is a Spring App that usses the CAS Server for it&apos;s authentication&quot;,</span><br><span class="line">  &quot;id&quot; : 19991,</span><br><span class="line">  &quot;evaluationOrder&quot; : 1,</span><br><span class="line">  &quot;proxyPolicy&quot; : &#123;</span><br><span class="line">    &quot;@class&quot; : &quot;org.apereo.cas.services.RegexMatchingRegisteredServiceProxyPolicy&quot;,</span><br><span class="line">    &quot;pattern&quot; : &quot;^https?://.*&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  //设置 生成 jwt时所要的key，该key来自于生成的cer中，则必需使用与cas服务器中相同的证书，可以不设置</span><br><span class="line">  &quot;publicKey&quot; : &#123;</span><br><span class="line">      &quot;@class&quot; : &quot;org.apereo.cas.services.RegisteredServicePublicKeyImpl&quot;,</span><br><span class="line">      &quot;location&quot; : &quot;file:/etc/cas/chen.cer&quot;,</span><br><span class="line">      &quot;algorithm&quot; : &quot;RSA&quot; //证书生成时所使用的加密方式</span><br><span class="line">  &#125;，</span><br><span class="line">  //使用jwt时才使用</span><br><span class="line">  &quot;properties&quot; : &#123;</span><br><span class="line">   &quot;@class&quot; : &quot;java.util.HashMap&quot;,</span><br><span class="line">    &quot;jwtAsServiceTicket&quot; : &#123;</span><br><span class="line">      &quot;@class&quot; : &quot;org.apereo.cas.services.DefaultRegisteredServiceProperty&quot;,</span><br><span class="line">      &quot;values&quot; : [ &quot;java.util.HashSet&quot;, [ &quot;true&quot; ] ]</span><br><span class="line">     &#125;,</span><br><span class="line">     // 可以不设置，若不设置，则在service启动时service 生成</span><br><span class="line">    &quot;jwtAsServiceTicketSigningKey&quot; : &#123;</span><br><span class="line">       &quot;@class&quot; : &quot;org.apereo.cas.services.DefaultRegisteredServiceProperty&quot;,</span><br><span class="line">       &quot;values&quot; : [ &quot;java.util.HashSet&quot;, [ &quot;ONOqVlFFievk5lo2Yz84S8J41DTrAJDbt4MnB2ZpniKAlzHitlL12xJ1VYxB8GpB&quot; ] ]  //key一定为64字节，在jwtAsServiceTicketEncryptionKey加密才使用该加密</span><br><span class="line">      &#125;,</span><br><span class="line">      // 可以不设置，若不设置，则在service启动时service 生成</span><br><span class="line">     &quot;jwtAsServiceTicketEncryptionKey&quot; : &#123;</span><br><span class="line">         &quot;@class&quot; : &quot;org.apereo.cas.services.DefaultRegisteredServiceProperty&quot;,</span><br><span class="line">         &quot;values&quot; : [ &quot;java.util.HashSet&quot;, [ &quot;afkeykeykeykyekyefdafsadfsdafdafdafsadfsafa&quot; ] ]  //key一定为256位 ，先使用该key 加密</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //设置返回值的内类</span><br><span class="line">  &quot;attributeReleasePolicy&quot; : &#123;</span><br><span class="line">    &quot;@class&quot; : &quot;org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy&quot;,</span><br><span class="line">    &quot;authorizedToReleaseCredentialPassword&quot; : true</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="配置pom-xml"><a href="#配置pom-xml" class="headerlink" title="配置pom.xml"></a>配置pom.xml</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在cas-overlay-template项目下存在一个pom.xml文件，需要添加依赖包后，才会开启相应的功能，否则只存在一部分基础功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span><br><span class="line">         xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">         xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd "</span>&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;cas-overlay&lt;/artifactId&gt;</span><br><span class="line">    &lt;packaging&gt;war&lt;/packaging&gt;</span><br><span class="line">    &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-webapp<span class="variable">$&#123;app.server&#125;</span>&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">            &lt;<span class="built_in">type</span>&gt;war&lt;/<span class="built_in">type</span>&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-support-jdbc&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;cas-server-support-jdbc-drivers&lt;/artifactId&gt;</span><br><span class="line">           &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;hibernate-entitymanager&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;5.2.11.Final&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-support-jdbc-authentication&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#此处也需要添加,无法打包时可删除</span></span><br><span class="line">        &lt;!--&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.jasig.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-support-jpa-ticket-registry&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt; --&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-support-oidc&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-core-authentication&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-support-json-service-registry&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--jwt--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">             &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">             &lt;artifactId&gt;cas-server-support-token-tickets&lt;/artifactId&gt;</span><br><span class="line">             &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">                </span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">             &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">             &lt;artifactId&gt;cas-server-support-json-service-registry&lt;/artifactId&gt;</span><br><span class="line">             &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!--rest--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;cas-server-support-rest&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        </span><br><span class="line">         &lt;dependency&gt;</span><br><span class="line">             &lt;groupId&gt;org.apereo.cas&lt;/groupId&gt;</span><br><span class="line">             &lt;artifactId&gt;cas-server-support-rest-tokens&lt;/artifactId&gt;</span><br><span class="line">             &lt;version&gt;<span class="variable">$&#123;cas.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">                        </span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="SSL认证"><a href="#SSL认证" class="headerlink" title="SSL认证"></a>SSL认证</h3><h4 id="生成私钥"><a href="#生成私钥" class="headerlink" title="生成私钥"></a>生成私钥</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;利用jdk自身的keytool生成相应的数字一个证书,生成证书到D:\localhost.keystore</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用JDK的keytool命令，生成证书（包含证书/公钥/私钥）到D:\localhost.keystore：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-ext san（subjectAltName）: 备用域名,在新的规范内代替cn，可映射到多个域名，也可指向ip,在chrome中需要设置</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#您的名字与姓氏是（cn）:特殊的设置项，与域名相同</span></span><br><span class="line"></span><br><span class="line">D:&gt;keytool -genkey -keystore <span class="string">"D:\localhost.keystore"</span> -<span class="built_in">alias</span> localhost -keyalg RSA -storepass changeit -ext san=dns:cas.example.org,ip:127.0.01</span><br><span class="line"></span><br><span class="line">输入密钥库口令:</span><br><span class="line"></span><br><span class="line">再次输入新口令:</span><br><span class="line"></span><br><span class="line">您的名字与姓氏是什么?</span><br><span class="line">  [Unknown]:  localhost</span><br><span class="line">您的组织单位名称是什么?</span><br><span class="line">  [Unknown]:  sishuok.com</span><br><span class="line">您的组织名称是什么?</span><br><span class="line">  [Unknown]:  sishuok.com</span><br><span class="line">您所在的城市或区域名称是什么?</span><br><span class="line">  [Unknown]:  beijing</span><br><span class="line">您所在的省/市/自治区名称是什么?</span><br><span class="line">  [Unknown]:  beijing</span><br><span class="line">该单位的双字母国家/地区代码是什么?</span><br><span class="line">  [Unknown]:  cn</span><br><span class="line">CN=localhost, OU=sishuok.com, O=sishuok.com, L=beijing, ST=beijing, C=cn是否正确</span><br><span class="line">?</span><br><span class="line">  [否]:  y</span><br><span class="line"></span><br><span class="line">输入 &lt;localhost&gt; 的密钥口令</span><br><span class="line">        (如果和密钥库口令相同, 按回车):</span><br><span class="line">再次输入新口令:</span><br><span class="line"></span><br><span class="line"><span class="comment">#通过如上步骤，生成证书到D:\ localhost.keystore；</span></span><br></pre></td></tr></table></figure>
+<h4 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;首先使用localhost.keystore导出数字证书（公钥）到D:\localhost.cer</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#-alias 与生成时的名字要相同</span></span><br><span class="line"></span><br><span class="line">D:&gt;keytool -<span class="built_in">export</span> -<span class="built_in">alias</span> localhost -file D:\localhost.cer -keystore D:\localhost.keystore</span><br></pre></td></tr></table></figure>
+<h4 id="将其配置到jdk内"><a href="#将其配置到jdk内" class="headerlink" title="将其配置到jdk内"></a>将其配置到jdk内</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;因为CAS client需要使用该证书进行验证，需要将证书导入到JDK中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#需要进入jdk安装路径的security文件内</span></span><br><span class="line">D:&gt; <span class="built_in">cd</span> D:\jdk1.7.0_21\jre\lib\security</span><br><span class="line">keytool -import -<span class="built_in">alias</span> localhost -file D:\localhost.cer -noprompt -trustcacerts -storetype jks -keystore cacerts -storepass changeit</span><br><span class="line"></span><br><span class="line"><span class="comment">#若导入出现错误时,可将security目录下的cacerts删掉,再次导入</span></span><br></pre></td></tr></table></figure>
+<h2 id="打包运行"><a href="#打包运行" class="headerlink" title="打包运行"></a>打包运行</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;打包成功后会,项目内会出现target文件内存在cas.war的包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将etc目录下的所有文件都复制到项目所在的根目下面</span></span><br><span class="line">build.cmd copy</span><br><span class="line"></span><br><span class="line"><span class="comment">#自动生成证书</span></span><br><span class="line">build.cmd gencert</span><br><span class="line"></span><br><span class="line"><span class="comment">#cmd进入项目文件下按github上面的指令进行打包</span></span><br><span class="line">D:&gt;build.cmd package -U       <span class="comment"># -U是清除后打包</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打包后，再运行</span></span><br><span class="line">build.cmd run</span><br><span class="line"></span><br><span class="line"><span class="comment">#直接运行war,需要进入到cas.war所在的目录下</span></span><br><span class="line">java -jar cas.war</span><br><span class="line"></span><br><span class="line"><span class="comment">#可查看build.cmd/build.sh下自己写入启动方法</span></span><br></pre></td></tr></table></figure>
+<h2 id="下面的步骤不需要使用"><a href="#下面的步骤不需要使用" class="headerlink" title="下面的步骤不需要使用"></a>下面的步骤不需要使用</h2><h4 id="将cas-war放入tomact容器"><a href="#将cas-war放入tomact容器" class="headerlink" title="将cas.war放入tomact容器"></a>将cas.war放入tomact容器</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;将cas.war放入D:\apache-tomcat-8.0.30\webapps内</p>
+<h4 id="与tomact同级创建ect文件"><a href="#与tomact同级创建ect文件" class="headerlink" title="与tomact同级创建ect文件"></a>与tomact同级创建ect文件</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;将项目中的ect文件全部复制到与tomact同级的磁盘存储,在该文件下只改变cas.properties内的内容时,不需要将项目重新打包,只需要将tomact重启就可生效配置文件</p>
+<h3 id="配置tomact的-认证SSL-其中这一步可不执行-跳转到"><a href="#配置tomact的-认证SSL-其中这一步可不执行-跳转到" class="headerlink" title="配置tomact的,认证SSL ,其中这一步可不执行,跳转到"></a>配置tomact的,认证SSL ,其中这一步可不执行,跳转到</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;配置D:\apache-tomcat-8.0.30\conf下的server.xml文件,将下面的内容添加进出,认证SSL,其keystoreFile所指向的地方:为私钥存放的地方</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span><br><span class="line">              maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line">              clientAuth=<span class="string">"false"</span> sslProtocol=<span class="string">"TLS"</span></span><br><span class="line">              keystoreFile=<span class="string">"D:\localhost.keystore"</span> keystorePass=<span class="string">"123456"</span></span><br><span class="line">          /&gt;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;将其内容配置好后,启动tomcat,访问地址:<a href="https://127.0.0.1:8443/cas/login" target="_blank" rel="noopener">https://127.0.0.1:8443/cas/login</a></p>
+<h3 id="若需要查看client可前往githut"><a href="#若需要查看client可前往githut" class="headerlink" title="若需要查看client可前往githut"></a>若需要查看client可前往githut</h3><blockquote>
+<p><a href="https://github.com/ChenAdminChen/java.git" target="_blank" rel="noopener">https://github.com/ChenAdminChen/java.git</a></p>
+</blockquote>
+<p>project:<br>         cas-client<br>         cas-client-test</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年07月06日 16:45</p>
+        <p>原始链接： <a class="post-url" href="/2018/02/28/cas-server-set-up/" title="cas server set up">https://chenadminchen.github.io/2018/02/28/cas-server-set-up/</a></p>
+        <footer>
+            <a href="https://chenadminchen.github.io">
+                <img src="/images/logo.png" alt="chen">
+                chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenadminchen.github.io/2018/02/28/cas-server-set-up/&title=《cas server set up》 — chen&pic=https://chenadminchen.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenadminchen.github.io/2018/02/28/cas-server-set-up/&title=《cas server set up》 — chen&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chenadminchen.github.io/2018/02/28/cas-server-set-up/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cas server set up》 — chen&url=https://chenadminchen.github.io/2018/02/28/cas-server-set-up/&via=https://chenadminchen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chenadminchen.github.io/2018/02/28/cas-server-set-up/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://chenadminchen.github.io/2018/02/28/cas-server-set-up/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/cas/" class="color4">cas</a>
+      
+    <a href="/tags/openid/" class="color2">openid</a>
+      
+    <a href="/tags/单点登录/" class="color5">单点登录</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cas的学习"><span class="post-toc-text">cas的学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载基于5-2x版本的cas服务器"><span class="post-toc-text">下载基于5.2x版本的cas服务器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#cas-properties文件配置"><span class="post-toc-text">cas.properties文件配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注册服务"><span class="post-toc-text">注册服务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置pom-xml"><span class="post-toc-text">配置pom.xml</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SSL认证"><span class="post-toc-text">SSL认证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成私钥"><span class="post-toc-text">生成私钥</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成公钥"><span class="post-toc-text">生成公钥</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将其配置到jdk内"><span class="post-toc-text">将其配置到jdk内</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#打包运行"><span class="post-toc-text">打包运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面的步骤不需要使用"><span class="post-toc-text">下面的步骤不需要使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将cas-war放入tomact容器"><span class="post-toc-text">将cas.war放入tomact容器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#与tomact同级创建ect文件"><span class="post-toc-text">与tomact同级创建ect文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置tomact的-认证SSL-其中这一步可不执行-跳转到"><span class="post-toc-text">配置tomact的,认证SSL ,其中这一步可不执行,跳转到</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#若需要查看client可前往githut"><span class="post-toc-text">若需要查看client可前往githut</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/02/28/oauth2/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          oauth2
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/01/29/karaf-database/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">karaf database driver</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://chenadminchen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/filter/">filter</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/iterator/">iterator</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/learn/">learn</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/mysqlx/">mysqlx</a><a class="category-link" href="/categories/react-native/">react-native</a><a class="category-link" href="/categories/spring-boot/">spring-boot</a><a class="category-link" href="/categories/window/">window</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

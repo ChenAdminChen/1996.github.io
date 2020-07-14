@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>javaScript （一） | chen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Chen_Chen Blog">
+  
+  <meta name="description" content="调用fun 与 fun ()区别&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在javaScript中调用方法时加（）与不加（）时，都不会出错，会出现两种不同的结果，当方法名加上（）调用时，可会执行方法中的逻辑，但如果不加（）时，则会将方法本身的信息打印出来，如下： 12345678&amp;lt;script&amp;gt;    function">
+<meta name="keywords" content="javaScript,function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript （一）">
+<meta property="og:url" content="https://chenadminchen.github.io/2017/11/21/javaScript-1/index.html">
+<meta property="og:site_name" content="chen">
+<meta property="og:description" content="调用fun 与 fun ()区别&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在javaScript中调用方法时加（）与不加（）时，都不会出错，会出现两种不同的结果，当方法名加上（）调用时，可会执行方法中的逻辑，但如果不加（）时，则会将方法本身的信息打印出来，如下： 12345678&amp;lt;script&amp;gt;    function">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-06T08:45:58.790Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaScript （一）">
+<meta name="twitter:description" content="调用fun 与 fun ()区别&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在javaScript中调用方法时加（）与不加（）时，都不会出错，会出现两种不同的结果，当方法名加上（）调用时，可会执行方法中的逻辑，但如果不加（）时，则会将方法本身的信息打印出来，如下： 12345678&amp;lt;script&amp;gt;    function">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Chen&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Chen&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个 IT
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="CHNE_CHEN" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github"  href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-javaScript-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      javaScript （一）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-11-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="调用fun-与-fun-区别"><a href="#调用fun-与-fun-区别" class="headerlink" title="调用fun 与 fun ()区别"></a>调用fun 与 fun ()区别</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在javaScript中调用方法时加（）与不加（）时，都不会出错，会出现两种不同的结果，当方法名加上（）调用时，可会执行方法中的逻辑，但如果不加（）时，则会将方法本身的信息打印出来，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">function</span> add(x , y)&#123;</span><br><span class="line">        <span class="built_in">return</span> x+y;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(add(7, 8));   <span class="comment">#15</span></span><br><span class="line">    console.log(add);    <span class="comment">#  function add(x , y)&#123; return x+y;&#125;  </span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="javaScript中给某个标签赋值操作"><a href="#javaScript中给某个标签赋值操作" class="headerlink" title="javaScript中给某个标签赋值操作"></a>javaScript中给某个标签赋值操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># demo is tag id name</span></span><br><span class="line">document.getElementById(<span class="string">"demo"</span>).innerHTML = <span class="string">"content"</span>;</span><br><span class="line"><span class="comment">#demo is tag class name</span></span><br><span class="line">document.getElementsByClassName(<span class="string">"demo"</span>).innerHTML = <span class="string">"content"</span>;</span><br><span class="line"><span class="comment"># demo is tag name name</span></span><br><span class="line">document.getElementsByName(<span class="string">"demo"</span>).innerHTML = <span class="string">"content"</span>;</span><br><span class="line"><span class="comment"># input is tag name</span></span><br><span class="line">document.getElementsByTagName(<span class="string">"input"</span>).innerHTML = <span class="string">"content"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="getElementByName"><a href="#getElementByName" class="headerlink" title="getElementByName"></a>getElementByName</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该方法与 getElementById() 方法相似，但是它查询元素的 name 属性，而不是 id 属性。<br>另外，因为一个文档中的 name 属性可能不唯一（如 HTML 表单中的单选按钮通常具有相同的 name 属性），所有 getElementsByName() 方法返回的是元素的数组，而不是一个元素。</p>
+<h3 id="getElementsByTagName"><a href="#getElementsByTagName" class="headerlink" title="getElementsByTagName"></a>getElementsByTagName</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getElementsByTagName() 方法可返回带有指定标签名的对象的集合。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getElementsByTagName() 方法返回元素的顺序是它们在文档中的顺序。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果把特殊字符串 “*” 传递给 getElementsByTagName() 方法，它将返回文档中所有元素的列表，元素排列的顺序就是它们在文档中的顺序。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;传递给 getElementsByTagName() 方法的字符串可以不区分大小写。</p>
+<h2 id="function-object对象"><a href="#function-object对象" class="headerlink" title="function object对象"></a>function object对象</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#person is object</span></span><br><span class="line">var person = &#123;</span><br><span class="line">    age: 13,</span><br><span class="line">    name: <span class="string">"test"</span>,</span><br><span class="line">    sex: <span class="string">"男"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#第一种取值方法</span></span><br><span class="line">var age1 = person.age; <span class="comment"># age1 is 13</span></span><br><span class="line"><span class="comment">#第二种取值方法</span></span><br><span class="line">var age2 = person[<span class="string">"age"</span>];  <span class="comment"># age2 is 13</span></span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当变量声明时使用了“new”关键字是，则代表为object对象</p>
+<h2 id="String的特殊方法"><a href="#String的特殊方法" class="headerlink" title="String的特殊方法"></a>String的特殊方法</h2><h3 id="slice-（python）"><a href="#slice-（python）" class="headerlink" title="slice()（python）"></a>slice()（python）</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;空格也算一个字符串<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var str = <span class="string">'Apple, Banana, Kiwi'</span>;</span><br><span class="line"><span class="comment">#slice(start,end) 可以从后往前数</span></span><br><span class="line">var pos = str.slice(-12,-9); <span class="comment"># pos = Ban</span></span><br><span class="line">var pos1 = str.slice(-12); <span class="comment"># pos1 = Banana, Kiwi</span></span><br><span class="line">``` </span><br><span class="line"><span class="comment">### concat()(mysql)</span></span><br><span class="line">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;两个字符串拼接</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">var text1 = <span class="string">"Apple"</span>;</span><br><span class="line">var text2 = <span class="string">"Banana"</span>;</span><br><span class="line">var text3 = text1.concat(<span class="string">" "</span>,text2);  <span class="comment">#Apple Banana</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="charAt-amp-charCodeAt"><a href="#charAt-amp-charCodeAt" class="headerlink" title="charAt() &amp; charCodeAt()"></a>charAt() &amp; charCodeAt()</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charAt从一个字符串中获得一个字符<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charCodeAt从一个字符串中获得一个字符unicode</p>
+<h2 id="number的特殊方法"><a href="#number的特殊方法" class="headerlink" title="number的特殊方法"></a>number的特殊方法</h2><h3 id="toExponential"><a href="#toExponential" class="headerlink" title="toExponential()"></a>toExponential()</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该方法是将number转换成string,参数为小数点后的几位<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var x = 9.656;</span><br><span class="line">x.toExponential(2);     // returns 9.66e+0</span><br><span class="line">x.toExponential(4);     // returns 9.6560e+0</span><br><span class="line">x.toExponential(6);     // returns 9.656000e+0</span><br></pre></td></tr></table></figure></p>
+<h3 id="toFixed"><a href="#toFixed" class="headerlink" title="toFixed()"></a>toFixed()</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该方法是将number转换成string,参数为该数的小数点后的位数，像数学里的四舍五入，但它是指定小数点后的位数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 9.656;</span><br><span class="line">x.toFixed(0);           // returns 10</span><br><span class="line">x.toFixed(2);           // returns 9.66</span><br><span class="line">x.toFixed(4);           // returns 9.6560</span><br><span class="line">x.toFixed(6);           // returns 9.656000</span><br></pre></td></tr></table></figure></p>
+<h3 id="toPrecision"><a href="#toPrecision" class="headerlink" title="toPrecision()"></a>toPrecision()</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该方法是将number转换成string,参数为该数的位数，像数学里的四舍五入，但它是指定数的位数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 9.656;</span><br><span class="line">x.toPrecision();        // returns 9.656</span><br><span class="line">x.toPrecision(2);       // returns 9.7</span><br><span class="line">x.toPrecision(4);       // returns 9.656</span><br><span class="line">x.toPrecision(6);       // returns 9.65600</span><br></pre></td></tr></table></figure></p>
+<h3 id="number中的类型转换"><a href="#number中的类型转换" class="headerlink" title="number中的类型转换"></a>number中的类型转换</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;都是从第一位开始转换，若第一个字符串不是数字的则不能转换，返回NaN(Not-a-Number)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Number(<span class="string">"12"</span>)  <span class="comment"># 12</span></span><br><span class="line">parseFloat(<span class="string">"12.5"</span>) <span class="comment">#12.5</span></span><br><span class="line">parseInt(<span class="string">"12.5"</span>) <span class="comment">#12</span></span><br><span class="line"></span><br><span class="line">x = <span class="literal">true</span>;         //在javaScript中 <span class="literal">true</span>为1，其他的数据都为<span class="literal">false</span></span><br><span class="line">Number(x);        // returns 1</span><br><span class="line">x = <span class="literal">false</span>;     </span><br><span class="line">Number(x);        // returns 0</span><br><span class="line">x = new Date();</span><br><span class="line">Number(x);        // returns 1404568027739</span><br><span class="line">x = <span class="string">"10"</span></span><br><span class="line">Number(x);        // returns 10</span><br><span class="line">x = <span class="string">"10 20"</span></span><br><span class="line">Number(x);        // returns NaN</span><br><span class="line">x = <span class="string">"10 test"</span>;</span><br><span class="line">Number(x);       // returns 10</span><br><span class="line">x = <span class="string">"test 10"</span>;</span><br><span class="line">Number(x)       // returns NaN</span><br></pre></td></tr></table></figure></p>
+<h3 id="number的特殊几个类型"><a href="#number的特殊几个类型" class="headerlink" title="number的特殊几个类型"></a>number的特殊几个类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MAX_VALUE</td>
+<td style="text-align:center">Returns the largest number possible in JavaScript</td>
+</tr>
+<tr>
+<td style="text-align:left">MIN_VALUE</td>
+<td style="text-align:center">Returns the smallest number possible in JavaScript</td>
+</tr>
+<tr>
+<td style="text-align:left">NEGATIVE_INFINITY</td>
+<td style="text-align:center">Represents negative infinity (returned on overflow)</td>
+</tr>
+<tr>
+<td style="text-align:left">NaN</td>
+<td style="text-align:center">Represents a “Not-a-Number” value</td>
+</tr>
+<tr>
+<td style="text-align:left">POSITIVE_INFINITY</td>
+<td style="text-align:center">Represents infinity (returned on overflow)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><h3 id="三种方法判断是否是Array"><a href="#三种方法判断是否是Array" class="headerlink" title="三种方法判断是否是Array"></a>三种方法判断是否是Array</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array.isArray()判断某个变量是否是数组 true /false<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用关键判断instanceof (var instanceof Array)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自定义方法判断</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> isArray(x) &#123;</span><br><span class="line">    <span class="built_in">return</span> x.constructor.toString().indexOf(<span class="string">"Array"</span>) &gt; -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="将Array的值转换成string"><a href="#将Array的值转换成string" class="headerlink" title="将Array的值转换成string"></a>将Array的值转换成string</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// toString()</span><br><span class="line">var fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">document.getElementById(<span class="string">"demo"</span>).innerHTML = fruits.toString();</span><br><span class="line"></span><br><span class="line">//join()</span><br><span class="line">var fruits = [<span class="string">"Banana"</span>, <span class="string">"Orange"</span>, <span class="string">"Apple"</span>, <span class="string">"Mango"</span>];</span><br><span class="line">document.getElementById(<span class="string">"demo"</span>).innerHTML = fruits.join();</span><br></pre></td></tr></table></figure>
+<h3 id="pop-与push"><a href="#pop-与push" class="headerlink" title="pop()与push()"></a>pop()与push()</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javaScript中对array的操作像对队列一样，使用pop()与push()两种函数可以对数据进行操作</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年07月06日 16:45</p>
+        <p>原始链接： <a class="post-url" href="/2017/11/21/javaScript-1/" title="javaScript （一）">https://chenadminchen.github.io/2017/11/21/javaScript-1/</a></p>
+        <footer>
+            <a href="https://chenadminchen.github.io">
+                <img src="/images/logo.png" alt="chen">
+                chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenadminchen.github.io/2017/11/21/javaScript-1/&title=《javaScript （一）》 — chen&pic=https://chenadminchen.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenadminchen.github.io/2017/11/21/javaScript-1/&title=《javaScript （一）》 — chen&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chenadminchen.github.io/2017/11/21/javaScript-1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javaScript （一）》 — chen&url=https://chenadminchen.github.io/2017/11/21/javaScript-1/&via=https://chenadminchen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chenadminchen.github.io/2017/11/21/javaScript-1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://chenadminchen.github.io/2017/11/21/javaScript-1/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javaScript/" class="color1">javaScript</a>
+      
+    <a href="/tags/function/" class="color4">function</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用fun-与-fun-区别"><span class="post-toc-text">调用fun 与 fun ()区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#javaScript中给某个标签赋值操作"><span class="post-toc-text">javaScript中给某个标签赋值操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#getElementByName"><span class="post-toc-text">getElementByName</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#getElementsByTagName"><span class="post-toc-text">getElementsByTagName</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#function-object对象"><span class="post-toc-text">function object对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#String的特殊方法"><span class="post-toc-text">String的特殊方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#slice-（python）"><span class="post-toc-text">slice()（python）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#charAt-amp-charCodeAt"><span class="post-toc-text">charAt() &amp; charCodeAt()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#number的特殊方法"><span class="post-toc-text">number的特殊方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toExponential"><span class="post-toc-text">toExponential()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toFixed"><span class="post-toc-text">toFixed()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toPrecision"><span class="post-toc-text">toPrecision()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#number中的类型转换"><span class="post-toc-text">number中的类型转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#number的特殊几个类型"><span class="post-toc-text">number的特殊几个类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Array"><span class="post-toc-text">Array</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三种方法判断是否是Array"><span class="post-toc-text">三种方法判断是否是Array</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将Array的值转换成string"><span class="post-toc-text">将Array的值转换成string</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pop-与push"><span class="post-toc-text">pop()与push()</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/11/22/mysql-error/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          mysql error 总结
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/11/20/linux-mysql-java-time/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">linux mysql java time</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://chenadminchen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/filter/">filter</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/iterator/">iterator</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/learn/">learn</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/mysqlx/">mysqlx</a><a class="category-link" href="/categories/react-native/">react-native</a><a class="category-link" href="/categories/spring-boot/">spring-boot</a><a class="category-link" href="/categories/window/">window</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>java class (二) | chen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Chen_Chen Blog">
+  
+  <meta name="description" content="介绍class中数据类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;该文章引用于 https://blog.csdn.net/zhangjg_blog/article/details/21487287,若 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class文件中的信息是一项一项排列的， 每项">
+<meta name="keywords" content="class,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java class (二)">
+<meta property="og:url" content="https://chenadminchen.github.io/2018/04/18/java-class-2/index.html">
+<meta property="og:site_name" content="chen">
+<meta property="og:description" content="介绍class中数据类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;该文章引用于 https://blog.csdn.net/zhangjg_blog/article/details/21487287,若 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class文件中的信息是一项一项排列的， 每项">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-06T08:45:58.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java class (二)">
+<meta name="twitter:description" content="介绍class中数据类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;该文章引用于 https://blog.csdn.net/zhangjg_blog/article/details/21487287,若 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class文件中的信息是一项一项排列的， 每项">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Chen&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Chen&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个 IT
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="CHNE_CHEN" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github"  href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java-class-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java class (二)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-04-18
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="介绍class中数据类型"><a href="#介绍class中数据类型" class="headerlink" title="介绍class中数据类型"></a>介绍class中数据类型</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该文章引用于 <a href="https://blog.csdn.net/zhangjg_blog/article/details/21487287,若" target="_blank" rel="noopener">https://blog.csdn.net/zhangjg_blog/article/details/21487287,若</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class文件中的信息是一项一项排列的， 每项数据都有它的固定长度， 有的占一个字节， 有的占两个字节， 还有的占四个字节或8个字节， 数据项的不同长度分别用u1, u2, u4, u8表示， 分别表示一种数据项在class文件中占据一个字节， 两个字节， 4个字节和8个字节。 可以把u1, u2, u3, u4看做class文件数据项的“类型” 。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class文件中存在以下数据项(该图表参考自《深入Java虚拟机》)：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>数量</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u4</td>
+<td>magic</td>
+<td>1</td>
+<td>魔数</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>minor_version</td>
+<td>1</td>
+<td>此版本号</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>major_version</td>
+<td>1</td>
+<td>主版本号</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>constant_pool_count</td>
+<td>1</td>
+</tr>
+<tr>
+<td>cp_info</td>
+<td>constant_pool</td>
+<td>constant_pool_count - 1</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>access_flags</td>
+<td>1</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>this_class</td>
+<td>1</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>super_class</td>
+<td>1</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>interfaces_count</td>
+<td>1</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>interfaces</td>
+<td>interfaces_count</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>fields_count</td>
+<td>1</td>
+</tr>
+<tr>
+<td>field_info</td>
+<td>fields</td>
+<td>fields_count</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>methods_count</td>
+<td>1</td>
+</tr>
+<tr>
+<td>method_info</td>
+<td>methods</td>
+<td>methods_count</td>
+</tr>
+<tr>
+<td>u2</td>
+<td>attribute_count</td>
+<td>1</td>
+</tr>
+<tr>
+<td>attribute_info</td>
+<td>attributes</td>
+<td>attributes_count</td>
+</tr>
+</tbody>
+</table>
+<h3 id="介绍java-class-中的魔数-magic"><a href="#介绍java-class-中的魔数-magic" class="headerlink" title="介绍java class 中的魔数(magic)"></a>介绍java class 中的魔数(magic)</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在很多文件中都存在魔数,魔数是告诉调用者,该文件是属于那一类型,是否有用,在class文件中魔数放在第一位,其在class文件中的魔数占用了4个字节,网上说其class文件存在固定值 ‘0xCAFEBABE’,将class文件以二进制流的形式打开文件，将会看到对应的魔数。</p>
+<h3 id="介绍java-class-常量池中的数据项的类型"><a href="#介绍java-class-常量池中的数据项的类型" class="headerlink" title="介绍java class 常量池中的数据项的类型"></a>介绍java class 常量池中的数据项的类型</h3><table>
+<thead>
+<tr>
+<th>常量池中数据项类型</th>
+<th>类型标志</th>
+<th>类型描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONSTANT_Utf8</td>
+<td>1</td>
+<td>UTF-8编码的Unicode字符串</td>
+</tr>
+<tr>
+<td>CONSTANT_Integer</td>
+<td>3</td>
+<td>int类型字面值</td>
+</tr>
+<tr>
+<td>CONSTANT_Float</td>
+<td>4</td>
+<td>float类型字面值</td>
+</tr>
+<tr>
+<td>CONSTANT_Long</td>
+<td>5</td>
+<td>long类型字面值</td>
+</tr>
+<tr>
+<td>CONSTANT_Double</td>
+<td>6</td>
+<td>double类型字面值</td>
+</tr>
+<tr>
+<td>CONSTANT_Class</td>
+<td>7</td>
+<td>对一个类或接口的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_String</td>
+<td>8</td>
+<td>String类型字面值</td>
+</tr>
+<tr>
+<td>CONSTANT_Fieldref</td>
+<td>9</td>
+<td>对一个字段的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_Methodref</td>
+<td>10</td>
+<td>对一个类中声明的方法的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_InterfaceMethodref</td>
+<td>11</td>
+<td>对一个接口中声明的方法的符号引用</td>
+</tr>
+<tr>
+<td>CONSTANT_NameAndType</td>
+<td>12</td>
+<td>对一个字段或方法的部分符号引用</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每个数据项叫做一个XXX_info项， 比如， 一个常量池中一个CONSTANT_Utf8类型的项， 就是一个CONSTANT_Utf8_info 。除此之外， 每个info项中都有一个标志值（tag）， 这个标志值表明了这个常量池中的info项的类型是什么， 从上面的表格中可以看出， 一个CONSTANT_Utf8_info中的tag值为1， 而一个CONSTANT_Fieldref_info中的tag值为9 。</p>
+<h3 id="常量池中存放的符号引用"><a href="#常量池中存放的符号引用" class="headerlink" title="常量池中存放的符号引用"></a>常量池中存放的符号引用</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java程序是动态链接的， 在动态链接的实现中， 常量池扮演者举足轻重的角色。 除了存放一些字面量之外， 常量池中还存放着以下几种符号引用：</p>
+<p>（1） 类和接口的全限定名</p>
+<p>（2） 字段的名称和描述符</p>
+<p>（3） 方法的名称和描述符</p>
+<h4 id="类和接口的全限定名："><a href="#类和接口的全限定名：" class="headerlink" title="类和接口的全限定名："></a>类和接口的全限定名：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在常量池中， 一个类型的名字并不是我们在源文件中看到的那样， 也不是我们在源文件中使用的包名加类名的形式。 源文件中的全限定名和class文件中的全限定名不是相同的概念。 源文件中的全新定名是包名加类名， 包名的各个部分之间，包名和类名之间， 使用点号分割。 如Object类， 在源文件中的全限定名是java.lang.Object 。 而class文件中的全限定名是将点号替换成“/” 。 例如， Object类在class文件中的全限定名是 java/lang/Object 。 如果读者之前没有接触过class文件格式， 是class文件格式的初学者， 在这里不必知道全限定名在class文件中是如何使用的， 只需要知道， 源文件中一个类的名字， 在class文件中是用全限定名表述的。</p>
+<h4 id="字段的名称和描述符"><a href="#字段的名称和描述符" class="headerlink" title="字段的名称和描述符"></a>字段的名称和描述符</h4><table>
+<thead>
+<tr>
+<th>基本数据类型和void类型</th>
+<th>类型的对应字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>B</td>
+</tr>
+<tr>
+<td>char</td>
+<td>C</td>
+</tr>
+<tr>
+<td>double</td>
+<td>D</td>
+</tr>
+<tr>
+<td>float</td>
+<td>F</td>
+</tr>
+<tr>
+<td>int</td>
+<td>I</td>
+</tr>
+<tr>
+<td>long</td>
+<td>J</td>
+</tr>
+<tr>
+<td>short</td>
+<td>S</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>void</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<h4 id="类和接口，枚举描述"><a href="#类和接口，枚举描述" class="headerlink" title="类和接口，枚举描述"></a>类和接口，枚举描述</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基本类型和void在描述符中都有一个大写字符和他们对应， 那么引用类型（类和接口，枚举）在描述符中是如何对应的呢？ 引用类型的对应字符串（注意， 引用类型在描述符中使用一个字符串做对应） ， 这个字符串的格式是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">“L” + 类型的全限定名 + “;”</span><br><span class="line"></span><br><span class="line"><span class="comment">#55 = NameAndType        #74:#75        // getClass:()Ljava/lang/Class;</span></span><br><span class="line"><span class="comment">#74 = Utf8               getClass</span></span><br><span class="line"><span class="comment">#75 = Utf8               ()Ljava/lang/Class;</span></span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这三个部分之间没有空格， 是紧密排列的。 如Object在描述符中的对应字符串是： Ljava/lang/Object;  ； ArrayList在描述符中的对应字符串是： Ljava/lang/ArrayList;  ； 自定义类型com.examples.Person在描述符中的对应字符串是： Lcom/examples/Person; 。</p>
+<h4 id="数组类型的描述"><a href="#数组类型的描述" class="headerlink" title="数组类型的描述"></a>数组类型的描述</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">若干个“[”  +  数组中元素类型的对应字符串</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int[]类型的对应字符串是： [I  。 int[][]类型的对应字符串是： [[I 。 Object[]类型的对应字符串是： [Ljava/lang/Object; 。 Object[][][]类型的对应字符串是： [[[Ljava/lang/Object; 。</p>
+<h4 id="方法描述"><a href="#方法描述" class="headerlink" title="方法描述"></a>方法描述</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(参数1类型 参数2类型 参数3类型 ...)返回值类型</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面举例说明（此表格来源于《深入Java虚拟机》）</p>
+<p>方法描述符 | 方法声明<br>()I | int getSize()<br>()Ljava/lang/String; | String toString()<br>([Ljava/lang/String;)V | void main(String[] args)<br>()V | void wait()<br>(JI)V | void wait(long timeout, int nanos)<br>(ZILjava/lang/String;II)Z | boolean regionMatches(boolean ignoreCase, int toOffset, String other, int ooffset, int len)<br>([BII)I | int read(byte[] b, int off, int len )<br>()[[Ljava/lang/Object; | Object[][] getObjectArray()</p>
+<h4 id="特殊方法的方法名"><a href="#特殊方法的方法名" class="headerlink" title="特殊方法的方法名"></a>特殊方法的方法名</h4><p>首先要明确一下， 这里的特殊方法是指的类的构造方法和类型初始化方法。 构造方法就不用多说了， 至于类型的初始化方法， 对应到源码中就是静态初始化块。 也就是说， 静态初始化块， 在class文件中是以一个方法表述的， 这个方法同样有方法描述符和方法名。 </p>
+<p>类的构造方法的方法名使用字符串 <init> 表示， 而静态初始化方法的方法名使用字符串 <clinit> 表示。 除了这两种特殊的方法外， 其他普通方法的方法名， 和源文件中的方法名相同。</clinit></init></p>
+<h4 id="class文件中的访问标志信息"><a href="#class文件中的访问标志信息" class="headerlink" title="class文件中的访问标志信息"></a>class文件中的访问标志信息</h4><table>
+<thead>
+<tr>
+<th>标志名</th>
+<th>标志值</th>
+<th>标志含义</th>
+<th>针对的对像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACC_PUBLIC</td>
+<td>0x0001</td>
+<td>public类型</td>
+<td>所有类型</td>
+</tr>
+<tr>
+<td>ACC_FINAL</td>
+<td>0x0010</td>
+<td>final类型</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_SUPER</td>
+<td>0x0020</td>
+<td>使用新的invokespecial语义</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_INTERFACE</td>
+<td>0x0200</td>
+<td>接口类型</td>
+<td>接口</td>
+</tr>
+<tr>
+<td>ACC_ABSTRACT</td>
+<td>0x0400</td>
+<td>抽象类型</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_SYNTHETIC</td>
+<td>0x1000</td>
+<td>该类不由用户代码生成</td>
+<td>所有类型</td>
+</tr>
+<tr>
+<td>ACC_ANNOTATION</td>
+<td>0x2000</td>
+<td>注解类型</td>
+<td>注解</td>
+</tr>
+<tr>
+<td>ACC_ENUM</td>
+<td>0x4000</td>
+<td>枚举类型</td>
+<td>枚举</td>
+</tr>
+</tbody>
+</table>
+<h4 id="class文件字段的访问标志信息（flag）"><a href="#class文件字段的访问标志信息（flag）" class="headerlink" title="class文件字段的访问标志信息（flag）"></a>class文件字段的访问标志信息（flag）</h4><table>
+<thead>
+<tr>
+<th>标志名</th>
+<th>标志值</th>
+<th>标志含义</th>
+<th>设定者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACC_PUBLIC</td>
+<td>0x0001</td>
+<td>字段被设为public</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_PRIVATE</td>
+<td>0x0002</td>
+<td>字段被设为private</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_PROTECTED</td>
+<td>0x0004</td>
+<td>字段被设为protected</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_STATIC</td>
+<td>0x0008</td>
+<td>字段被设为static</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_FINAL</td>
+<td>0x0010</td>
+<td>字段被设为final</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_VOLATILE</td>
+<td>0x0040</td>
+<td>字段被设为volatile</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_TRANSIENT</td>
+<td>0x0080</td>
+<td>字段被设为transient</td>
+<td>类</td>
+</tr>
+</tbody>
+</table>
+<h4 id="描述的是方法的访问标志信息"><a href="#描述的是方法的访问标志信息" class="headerlink" title="描述的是方法的访问标志信息"></a>描述的是方法的访问标志信息</h4><table>
+<thead>
+<tr>
+<th>标志名</th>
+<th>标志值</th>
+<th>标志含义</th>
+<th>设定者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACC_PUBLIC</td>
+<td>0x0001</td>
+<td>方法设为public</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_PRIVATE</td>
+<td>0x0002</td>
+<td>方法设为private</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_PROTECTED</td>
+<td>0x0004</td>
+<td>方法设为protected</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_STATIC</td>
+<td>0x0008</td>
+<td>方法设为static</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_FINAL</td>
+<td>0x0010</td>
+<td>方法设为final</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_SYNCHRONIZED</td>
+<td>0x0020</td>
+<td>方法设为sychronized</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_NATIVE</td>
+<td>0x0100</td>
+<td>方法设为native</td>
+<td>类</td>
+</tr>
+<tr>
+<td>ACC_ABSTRACT</td>
+<td>0x0400</td>
+<td>方法设为abstract</td>
+<td>类和接口</td>
+</tr>
+<tr>
+<td>ACC_STRICT</td>
+<td>0x0800</td>
+<td>方法设为strictFP</td>
+<td>类和接口的<clinit>方法</clinit></td>
+</tr>
+</tbody>
+</table>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年07月06日 16:45</p>
+        <p>原始链接： <a class="post-url" href="/2018/04/18/java-class-2/" title="java class (二)">https://chenadminchen.github.io/2018/04/18/java-class-2/</a></p>
+        <footer>
+            <a href="https://chenadminchen.github.io">
+                <img src="/images/logo.png" alt="chen">
+                chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenadminchen.github.io/2018/04/18/java-class-2/&title=《java class (二)》 — chen&pic=https://chenadminchen.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenadminchen.github.io/2018/04/18/java-class-2/&title=《java class (二)》 — chen&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chenadminchen.github.io/2018/04/18/java-class-2/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java class (二)》 — chen&url=https://chenadminchen.github.io/2018/04/18/java-class-2/&via=https://chenadminchen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chenadminchen.github.io/2018/04/18/java-class-2/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://chenadminchen.github.io/2018/04/18/java-class-2/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/class/" class="color1">class</a>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍class中数据类型"><span class="post-toc-text">介绍class中数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍java-class-中的魔数-magic"><span class="post-toc-text">介绍java class 中的魔数(magic)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍java-class-常量池中的数据项的类型"><span class="post-toc-text">介绍java class 常量池中的数据项的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常量池中存放的符号引用"><span class="post-toc-text">常量池中存放的符号引用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类和接口的全限定名："><span class="post-toc-text">类和接口的全限定名：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字段的名称和描述符"><span class="post-toc-text">字段的名称和描述符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#类和接口，枚举描述"><span class="post-toc-text">类和接口，枚举描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组类型的描述"><span class="post-toc-text">数组类型的描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#方法描述"><span class="post-toc-text">方法描述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#特殊方法的方法名"><span class="post-toc-text">特殊方法的方法名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#class文件中的访问标志信息"><span class="post-toc-text">class文件中的访问标志信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#class文件字段的访问标志信息（flag）"><span class="post-toc-text">class文件字段的访问标志信息（flag）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#描述的是方法的访问标志信息"><span class="post-toc-text">描述的是方法的访问标志信息</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/04/18/java-class-load/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java classload
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/04/17/java-class-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java class (一)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://chenadminchen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/filter/">filter</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/iterator/">iterator</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/learn/">learn</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/mysqlx/">mysqlx</a><a class="category-link" href="/categories/react-native/">react-native</a><a class="category-link" href="/categories/spring-boot/">spring-boot</a><a class="category-link" href="/categories/window/">window</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

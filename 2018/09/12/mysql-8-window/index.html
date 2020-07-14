@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>mysql-8-window-function | chen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Chen_Chen Blog">
+  
+  <meta name="description" content="mysql window-function 介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;窗口函数早在SQL2003规范中就成为了标准SQL的一部分。而在mysql8.0带来了标准SQL的窗口函数功能，窗口函数与分组聚合函数相似的都提供了对一组行数据的统计计算。但与分组聚合函数将多行合并成一行不同是窗口函数会在结果结果集中展现每一行的聚合。窗口函数有两种使用方式，首先是常规的SQL聚合功能函">
+<meta name="keywords" content="mysql,window-function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql-8-window-function">
+<meta property="og:url" content="https://chenadminchen.github.io/2018/09/12/mysql-8-window/index.html">
+<meta property="og:site_name" content="chen">
+<meta property="og:description" content="mysql window-function 介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;窗口函数早在SQL2003规范中就成为了标准SQL的一部分。而在mysql8.0带来了标准SQL的窗口函数功能，窗口函数与分组聚合函数相似的都提供了对一组行数据的统计计算。但与分组聚合函数将多行合并成一行不同是窗口函数会在结果结果集中展现每一行的聚合。窗口函数有两种使用方式，首先是常规的SQL聚合功能函">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-06T08:45:58.790Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql-8-window-function">
+<meta name="twitter:description" content="mysql window-function 介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;窗口函数早在SQL2003规范中就成为了标准SQL的一部分。而在mysql8.0带来了标准SQL的窗口函数功能，窗口函数与分组聚合函数相似的都提供了对一组行数据的统计计算。但与分组聚合函数将多行合并成一行不同是窗口函数会在结果结果集中展现每一行的聚合。窗口函数有两种使用方式，首先是常规的SQL聚合功能函">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Chen&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Chen&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个 IT
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="CHNE_CHEN" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github"  href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-mysql-8-window" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      mysql-8-window-function
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-09-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="mysql-window-function-介绍"><a href="#mysql-window-function-介绍" class="headerlink" title="mysql window-function 介绍"></a>mysql window-function 介绍</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;窗口函数早在SQL2003规范中就成为了标准SQL的一部分。而在mysql8.0带来了标准SQL的窗口函数功能，窗口函数与分组聚合函数相似的都提供了<br>对一组行数据的统计计算。但与分组聚合函数将多行合并成一行不同是窗口函数会在结果结果集中展现每一行的聚合。<br>窗口函数有两种使用方式，首先是常规的SQL聚合功能函数和特殊的窗口函数。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;常规的聚合功能函数如：COUNT,SUM等函数。而窗口函数专有的则是RANK, DENSE_RANK, PERCENT_RANK, CUME_DIST, NTILE, ROW_NUMBER,<br>FIRST_VALUE, LAST_VALUE, NTH_VALUE, LEADand LAG等函数。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;窗口函数的主要优点是不会导致单个输出记录而进行分组。相反地，记录保留其单独的身份，并将聚合值添加到每条记录（行）</p>
+<h3 id="films-structure"><a href="#films-structure" class="headerlink" title="films structure"></a>films structure</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE films (</span><br><span class="line">  id int(11) primary key not null,</span><br><span class="line">  release_year int(11),</span><br><span class="line">  category_id int(11),</span><br><span class="line">  rating decimal(3,2)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into films (id,release_year,category_id,rating ) values</span><br><span class="line">(&apos;1&apos;, &apos;2015&apos;, &apos;1&apos;, &apos;8.00&apos;),</span><br><span class="line">(&apos;2&apos;, &apos;2015&apos;, &apos;2&apos;, &apos;8.50&apos;),</span><br><span class="line">(&apos;3&apos;, &apos;2015&apos;, &apos;3&apos;, &apos;9.00&apos;),</span><br><span class="line">(&apos;4&apos;, &apos;2016&apos;, &apos;2&apos;, &apos;8.20&apos;),</span><br><span class="line">(&apos;5&apos;, &apos;2016&apos;, &apos;1&apos;, &apos;8.40&apos;),</span><br><span class="line">(&apos;6&apos;, &apos;2017&apos;, &apos;2&apos;, &apos;7.00&apos;),</span><br><span class="line">(&apos;7&apos;, &apos;2015&apos;, &apos;1&apos;, &apos;7.20&apos;),</span><br><span class="line">(&apos;8&apos;, &apos;2015&apos;, &apos;3&apos;, &apos;5.80&apos;),</span><br><span class="line">(&apos;9&apos;, &apos;2016&apos;, &apos;2&apos;, &apos;7.00&apos;),</span><br><span class="line">(&apos;10&apos;, &apos;2017&apos;, &apos;4&apos;, &apos;8.50&apos;),</span><br><span class="line">(&apos;11&apos;, &apos;2017&apos;, &apos;1&apos;, &apos;9.20&apos;),</span><br><span class="line">(&apos;12&apos;, &apos;2015&apos;, &apos;2&apos;, &apos;8.50&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from films;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>release_year</th>
+<th>category_id</th>
+<th>rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2015</td>
+<td>1</td>
+<td>8.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2015</td>
+<td>3</td>
+<td>9.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2016</td>
+<td>2</td>
+<td>8.20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2016</td>
+<td>1</td>
+<td>8.40</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017</td>
+<td>2</td>
+<td>7.00</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2015</td>
+<td>1</td>
+<td>7.20</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2015</td>
+<td>3</td>
+<td>5.80</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2016</td>
+<td>2</td>
+<td>7.00</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2017</td>
+<td>4</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2017</td>
+<td>1</td>
+<td>9.20</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cume-dist"><a href="#cume-dist" class="headerlink" title="cume_dist"></a>cume_dist</h3><blockquote>
+<p>计算结果为相对位置/总行数,返回值为(0,1]<br><br>注意：对于重复值，计算的时候，取重复值的最后一行的位置</p>
+</blockquote>
+<h3 id="percent-rank"><a href="#percent-rank" class="headerlink" title="percent_rank"></a>percent_rank</h3><blockquote>
+<p>计算方法为（相对位置-1）/（总行数-1）<br><br>注意：对于重复值，计算的时候，取重复值的第一行的位<br><br>没有重复值的排序[记录相等也是不重复的]可以进行分页使用</p>
+</blockquote>
+<h3 id="row-number"><a href="#row-number" class="headerlink" title="row_number"></a>row_number</h3><blockquote>
+<p>排序返回值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--  cume_dist() / row_number() / </span><br><span class="line">select f.id,f.release_year,f.category_id,f.rating,</span><br><span class="line">-- cume_dist() OVER (order by f.rating) as sum,</span><br><span class="line">cume_dist() OVER w as total,</span><br><span class="line">row_number() over w as `row`,</span><br><span class="line">percent_rank()  over w as dfs</span><br><span class="line">from films f</span><br><span class="line">WINDOW w as (order by f.rating)</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>release_year</th>
+<th>rating</th>
+<th>total</th>
+<th>row</th>
+<th>dfs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>2015</td>
+<td>3</td>
+<td>5.80</td>
+<td>0.08333333333333333</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017</td>
+<td>2</td>
+<td>7.00</td>
+<td>0.25</td>
+<td>2</td>
+<td>0.09090909090909091</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2016</td>
+<td>2</td>
+<td>7.00</td>
+<td>0.25</td>
+<td>3</td>
+<td>0.09090909090909091</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2015</td>
+<td>1</td>
+<td>7.20</td>
+<td>0.3333333333333333</td>
+<td>4</td>
+<td>0.2727272727272727</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2015</td>
+<td>1</td>
+<td>8.00</td>
+<td>0.4166666666666667</td>
+<td>5</td>
+<td>0.36363636363636365</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2016</td>
+<td>2</td>
+<td>8.20</td>
+<td>0.5</td>
+<td>6</td>
+<td>0.45454545454545453</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2016</td>
+<td>1</td>
+<td>8.40</td>
+<td>0.5833333333333334</td>
+<td>7</td>
+<td>0.5454545454545454</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>0.8333333333333334</td>
+<td>8</td>
+<td>0.6363636363636364</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2017</td>
+<td>4</td>
+<td>8.50</td>
+<td>0.8333333333333334</td>
+<td>9</td>
+<td>0.6363636363636364</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>0.8333333333333334</td>
+<td>10</td>
+<td>0.6363636363636364</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2015</td>
+<td>3</td>
+<td>9.00</td>
+<td>0.9166666666666666</td>
+<td>11</td>
+<td>0.9090909090909091</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2017</td>
+<td>1</td>
+<td>9.20</td>
+<td>1</td>
+<td>12</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="first-value"><a href="#first-value" class="headerlink" title="first_value"></a>first_value</h3><blockquote>
+<p>FIRST_VALUE 返回组中数据窗口的分组中的第一个值<br><br>FIRST_VALUE ( [scalar_expression )OVER ( [ partition_by_clause ] order_by_clause ) </p>
+</blockquote>
+<h3 id="last-value"><a href="#last-value" class="headerlink" title="last_value"></a>last_value</h3><blockquote>
+<p>LAST_VALUE返回组中数据窗口的分组中的最后一个值<br><br>LAST_VALUE ( [scalar_expression )OVER ( [ partition_by_clause ] order_by_clause ) </p>
+</blockquote>
+<h3 id="NTH-VALUE"><a href="#NTH-VALUE" class="headerlink" title="NTH_VALUE"></a>NTH_VALUE</h3><blockquote>
+<p>NTH_VALUE（rating, x）返回组中数据窗口的分组第x+1的rating值，没有在计算到中的为null<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line">,first_value(rating) over w as `first` -- based on partition by release_year</span><br><span class="line">,last_value(rating) over w as `last` -- based on partition by release_year</span><br><span class="line">,NTH_VALUE(rating, 2) OVER w AS &apos;second&apos;  </span><br><span class="line">from films</span><br><span class="line">window w as (PARTITION BY release_year</span><br><span class="line">-- order by id </span><br><span class="line">ROWS  --?? </span><br><span class="line">UNBOUNDED</span><br><span class="line">PRECEDING</span><br><span class="line">)</span><br><span class="line">;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>release_year</th>
+<th>category_id</th>
+<th>rating</th>
+<th>first</th>
+<th>last</th>
+<th>second</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2015</td>
+<td>1</td>
+<td>8.00</td>
+<td>8.00</td>
+<td>8.00</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>8.00</td>
+<td>8.50</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2015</td>
+<td>3</td>
+<td>9.00</td>
+<td>8.00</td>
+<td>9.00</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2015</td>
+<td>1</td>
+<td>7.20</td>
+<td>8.00</td>
+<td>7.20</td>
+<td>7.20</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2015</td>
+<td>3</td>
+<td>5.80</td>
+<td>8.00</td>
+<td>5.80</td>
+<td>7.20</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>8.00</td>
+<td>8.50</td>
+<td>7.20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2016</td>
+<td>2</td>
+<td>8.20</td>
+<td>8.20</td>
+<td>8.20</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2016</td>
+<td>1</td>
+<td>8.40</td>
+<td>8.20</td>
+<td>8.40</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2016</td>
+<td>2</td>
+<td>7.00</td>
+<td>8.20</td>
+<td>7.00</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017</td>
+<td>2</td>
+<td>7.00</td>
+<td>7.00</td>
+<td>7.00</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2017</td>
+<td>4</td>
+<td>8.50</td>
+<td>7.00</td>
+<td>8.50</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2017</td>
+<td>1</td>
+<td>9.20</td>
+<td>7.00</td>
+<td>9.20</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lag"><a href="#lag" class="headerlink" title="lag"></a>lag</h3><h3 id="lead"><a href="#lead" class="headerlink" title="lead"></a>lead</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line">,lag(rating) over w as 	`lag`  -- last row rating to show lag, lag row is null, so lag is null</span><br><span class="line">,lead(rating) over w as `lead` -- next row rating to show lead , next row is null, so lead is null </span><br><span class="line">from reptile_dobao.films</span><br><span class="line">window w as (partition by release_year)  -- partition by 分区 ,lag / lead based on partition of release_year</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>release_year</th>
+<th>category_id</th>
+<th>rating</th>
+<th>lag</th>
+<th>lead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2015</td>
+<td>1</td>
+<td>8.00</td>
+<td>NULL</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>8.00</td>
+<td>9.00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2015</td>
+<td>3</td>
+<td>9.00</td>
+<td>8.50</td>
+<td>7.20</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2015</td>
+<td>1</td>
+<td>7.20</td>
+<td>9.00</td>
+<td>5.80</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2015</td>
+<td>3</td>
+<td>5.80</td>
+<td>7.20</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>5.80</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2016</td>
+<td>2</td>
+<td>8.20</td>
+<td>NULL</td>
+<td>8.40</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2016</td>
+<td>1</td>
+<td>8.40</td>
+<td>8.20</td>
+<td>7.00</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2016</td>
+<td>2</td>
+<td>7.00</td>
+<td>8.40</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017</td>
+<td>2</td>
+<td>7.00</td>
+<td>NULL</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2017</td>
+<td>4</td>
+<td>8.50</td>
+<td>7.00</td>
+<td>9.20</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2017</td>
+<td>1</td>
+<td>9.20</td>
+<td>8.50</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>lag(v,n,x) ,lead(v,n,x)带参数时，v 是字段，n指分组中区间数据的行数，n+1开始给值，当计算值没有值时用x值表式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line">,lag(rating,2,0) over w as 	`lag`  -- last row rating to show lag, lag row is 0, so lag is 0</span><br><span class="line">,lead(rating,2,0) over w as `lead` -- next row rating to show lead , next row is null, so lead is null </span><br><span class="line">from reptile_dobao.films</span><br><span class="line">window w as (partition by release_year)  -- partition by 分区 ,lag / lead based on partition of release_year</span><br><span class="line">;</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>release_year</th>
+<th>category_id</th>
+<th>rating</th>
+<th>lag</th>
+<th>lead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2015</td>
+<td>1</td>
+<td>8.00</td>
+<td>0.00</td>
+<td>9.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>0.00</td>
+<td>7.20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2015</td>
+<td>3</td>
+<td>9.00</td>
+<td>8.00</td>
+<td>5.80</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2015</td>
+<td>1</td>
+<td>7.20</td>
+<td>8.50</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2015</td>
+<td>3</td>
+<td>5.80</td>
+<td>9.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2015</td>
+<td>2</td>
+<td>8.50</td>
+<td>7.20</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2016</td>
+<td>2</td>
+<td>8.20</td>
+<td>0.00</td>
+<td>7.00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2016</td>
+<td>1</td>
+<td>8.40</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2016</td>
+<td>2</td>
+<td>7.00</td>
+<td>8.20</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2017</td>
+<td>2</td>
+<td>7.00</td>
+<td>0.00</td>
+<td>9.20</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2017</td>
+<td>4</td>
+<td>8.50</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2017</td>
+<td>1</td>
+<td>9.20</td>
+<td>7.00</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<h3 id="RANK"><a href="#RANK" class="headerlink" title="RANK()"></a>RANK()</h3><blockquote>
+<p>跳跃排序</p>
+</blockquote>
+<h3 id="NTILE"><a href="#NTILE" class="headerlink" title="NTILE()"></a>NTILE()</h3><blockquote>
+<p>连续排序  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年07月06日 16:45</p>
+        <p>原始链接： <a class="post-url" href="/2018/09/12/mysql-8-window/" title="mysql-8-window-function">https://chenadminchen.github.io/2018/09/12/mysql-8-window/</a></p>
+        <footer>
+            <a href="https://chenadminchen.github.io">
+                <img src="/images/logo.png" alt="chen">
+                chen
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenadminchen.github.io/2018/09/12/mysql-8-window/&title=《mysql-8-window-function》 — chen&pic=https://chenadminchen.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenadminchen.github.io/2018/09/12/mysql-8-window/&title=《mysql-8-window-function》 — chen&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://chenadminchen.github.io/2018/09/12/mysql-8-window/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql-8-window-function》 — chen&url=https://chenadminchen.github.io/2018/09/12/mysql-8-window/&via=https://chenadminchen.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://chenadminchen.github.io/2018/09/12/mysql-8-window/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://chenadminchen.github.io/2018/09/12/mysql-8-window/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/mysql/" class="color1">mysql</a>
+      
+    <a href="/tags/window-function/" class="color1">window-function</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mysql-window-function-介绍"><span class="post-toc-text">mysql window-function 介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#films-structure"><span class="post-toc-text">films structure</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#select"><span class="post-toc-text">select</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cume-dist"><span class="post-toc-text">cume_dist</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#percent-rank"><span class="post-toc-text">percent_rank</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#row-number"><span class="post-toc-text">row_number</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#first-value"><span class="post-toc-text">first_value</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#last-value"><span class="post-toc-text">last_value</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NTH-VALUE"><span class="post-toc-text">NTH_VALUE</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lag"><span class="post-toc-text">lag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lead"><span class="post-toc-text">lead</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RANK"><span class="post-toc-text">RANK()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NTILE"><span class="post-toc-text">NTILE()</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/09/13/zookeeper-based-1-command/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          zookeeper
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/09/06/mint-install-mysql8/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">mysql-8.11 install</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 chen<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://chenadminchen.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/filter/">filter</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/iterator/">iterator</a><a class="category-link" href="/categories/java/">java</a><a class="category-link" href="/categories/learn/">learn</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/mysqlx/">mysqlx</a><a class="category-link" href="/categories/react-native/">react-native</a><a class="category-link" href="/categories/spring-boot/">spring-boot</a><a class="category-link" href="/categories/window/">window</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/DDL/" style="font-size: 10px;">DDL</a> <a href="/tags/DataBinding/" style="font-size: 10px;">DataBinding</a> <a href="/tags/React-Native/" style="font-size: 10px;">React Native</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/SQL/" style="font-size: 12.86px;">SQL</a> <a href="/tags/State/" style="font-size: 10px;">State</a> <a href="/tags/alias/" style="font-size: 10px;">alias</a> <a href="/tags/android/" style="font-size: 14.29px;">android</a> <a href="/tags/android-studio/" style="font-size: 10px;">android studio</a> <a href="/tags/apache2-proxy/" style="font-size: 10px;">apache2 proxy</a> <a href="/tags/big-data/" style="font-size: 14.29px;">big-data</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/callBack/" style="font-size: 10px;">callBack</a> <a href="/tags/cas/" style="font-size: 10px;">cas</a> <a href="/tags/class/" style="font-size: 12.86px;">class</a> <a href="/tags/classload/" style="font-size: 10px;">classload</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/dart/" style="font-size: 10px;">dart</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/distributed-transaction-processing/" style="font-size: 10px;">distributed-transaction-processing</a> <a href="/tags/equals/" style="font-size: 10px;">equals</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/feign/" style="font-size: 10px;">feign</a> <a href="/tags/filter/" style="font-size: 10px;">filter</a> <a href="/tags/flutter/" style="font-size: 11.43px;">flutter</a> <a href="/tags/from/" style="font-size: 10px;">from</a> <a href="/tags/full-text/" style="font-size: 10px;">full-text</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/hadoop/" style="font-size: 10px;">hadoop</a> <a href="/tags/hbase-shell/" style="font-size: 10px;">hbase shell</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/image/" style="font-size: 11.43px;">image</a> <a href="/tags/imgae-uploading/" style="font-size: 10px;">imgae uploading</a> <a href="/tags/information-schema/" style="font-size: 10px;">information-schema</a> <a href="/tags/install/" style="font-size: 15.71px;">install</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/isAssignableFrom/" style="font-size: 10px;">isAssignableFrom</a> <a href="/tags/isInstance/" style="font-size: 10px;">isInstance</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/javaScript/" style="font-size: 17.14px;">javaScript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/karaf/" style="font-size: 10px;">karaf</a> <a href="/tags/keytool/" style="font-size: 10px;">keytool</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/learn/" style="font-size: 10px;">learn</a> <a href="/tags/linux/" style="font-size: 14.29px;">linux</a> <a href="/tags/linux-command/" style="font-size: 11.43px;">linux command</a> <a href="/tags/linux-mint/" style="font-size: 10px;">linux mint</a> <a href="/tags/load-balancing/" style="font-size: 10px;">load balancing</a> <a href="/tags/map/" style="font-size: 11.43px;">map</a> <a href="/tags/mapReduce/" style="font-size: 10px;">mapReduce</a> <a href="/tags/markdown-preview-enhanced/" style="font-size: 10px;">markdown_preview_enhanced</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/message-queue/" style="font-size: 10px;">message queue</a> <a href="/tags/mockito/" style="font-size: 10px;">mockito</a> <a href="/tags/module-call/" style="font-size: 10px;">module call</a> <a href="/tags/mongodb/" style="font-size: 14.29px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 18.57px;">mysql</a> <a href="/tags/mysql-install/" style="font-size: 10px;">mysql install</a> <a href="/tags/mysql-error/" style="font-size: 10px;">mysql-error</a> <a href="/tags/mysqlx/" style="font-size: 10px;">mysqlx</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oauth2/" style="font-size: 10px;">oauth2</a> <a href="/tags/observable/" style="font-size: 10px;">observable</a> <a href="/tags/openid/" style="font-size: 10px;">openid</a> <a href="/tags/paging/" style="font-size: 10px;">paging</a> <a href="/tags/partition/" style="font-size: 10px;">partition</a> <a href="/tags/pattern/" style="font-size: 10px;">pattern</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/pubsub/" style="font-size: 10px;">pubsub</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/react-native/" style="font-size: 11.43px;">react-native</a> <a href="/tags/react-native-error/" style="font-size: 10px;">react-native error</a> <a href="/tags/reduce/" style="font-size: 10px;">reduce</a> <a href="/tags/servicemix/" style="font-size: 11.43px;">servicemix</a> <a href="/tags/soft/" style="font-size: 10px;">soft</a> <a href="/tags/spring-mvc/" style="font-size: 11.43px;">spring mvc</a> <a href="/tags/spring-boot/" style="font-size: 12.86px;">spring-boot</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/tigase/" style="font-size: 10px;">tigase</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/upsync/" style="font-size: 10px;">upsync</a> <a href="/tags/variable/" style="font-size: 10px;">variable</a> <a href="/tags/venv/" style="font-size: 10px;">venv</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/visual-studio-code/" style="font-size: 10px;">visual-studio-code</a> <a href="/tags/web/" style="font-size: 11.43px;">web</a> <a href="/tags/window-cmd/" style="font-size: 10px;">window cmd</a> <a href="/tags/window-function/" style="font-size: 10px;">window-function</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/单点登录/" style="font-size: 10px;">单点登录</a> <a href="/tags/未写完/" style="font-size: 14.29px;">未写完</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
